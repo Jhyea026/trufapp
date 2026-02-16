@@ -3,17 +3,17 @@ import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:get/get.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
 import 'package:trufapp/app/core/theme/app_fonts_weight.dart';
-import 'package:trufapp/app/pages/home/main_controller.dart';
+import 'package:trufapp/app/pages/navigation/navigation_controller.dart';
 
-class MainPage extends StatelessWidget {
-  // late mainController homeController;
-  const MainPage({super.key});
+class NavigationPage extends StatelessWidget {
+  // late navigationController homeController;
+  const NavigationPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<MainController>(
-      init: MainController(),
-      builder: (mainController) {
+    return GetBuilder<NavigationController>(
+      init: NavigationController(),
+      builder: (navigationController) {
         return Scaffold(
           appBar: AppBar(
             shape: const RoundedRectangleBorder(
@@ -30,7 +30,7 @@ class MainPage extends StatelessWidget {
                 ),
                 const Spacer(),
                 InkWell(
-                  onTap: () => mainController.sair,
+                  onTap: () => navigationController.sair,
                   child: const Icon(LucideIcons.log_out, color: Colors.white),
                 ),
               ],
@@ -43,8 +43,8 @@ class MainPage extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Container(
-                      child: mainController
-                          .itensMenu[mainController.abaSelecionada.value]
+                      child: navigationController
+                          .itensMenu[navigationController.abaSelecionada.value]
                           .tela,
                     ),
                   ),
@@ -68,22 +68,22 @@ class MainPage extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: List.generate(
-                            mainController.itensMenu.length,
+                            navigationController.itensMenu.length,
                             (index) {
                               return InkWell(
-                                onTap: () => mainController.mudarAbas(index),
+                                onTap: () => navigationController.mudarAbas(index),
                                 child: Container(
                                   padding: const EdgeInsets.all(16),
                                   decoration: BoxDecoration(
                                     color:
-                                        mainController.abaSelecionada.value ==
+                                        navigationController.abaSelecionada.value ==
                                             index
                                         ? Colors.white
                                         : Colors.transparent,
                                     borderRadius: BorderRadius.circular(50),
                                   ),
                                   child: Icon(
-                                    mainController.itensMenu[index].icone,
+                                    navigationController.itensMenu[index].icone,
                                     size: 32,
                                   ),
                                 ),

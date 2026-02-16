@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
 import 'package:trufapp/app/core/models/itens_menu_model.dart';
 
-class MainController extends GetxController {
+class NavigationController extends GetxController {
   RxBool carregando = false.obs;
   RxInt abaSelecionada = 0.obs;
 
