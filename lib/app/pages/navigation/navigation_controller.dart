@@ -7,7 +7,6 @@ import 'package:trufapp/app/core/models/itens_menu_model.dart';
 class NavigationController extends GetxController {
   RxBool carregando = false.obs;
   RxInt abaSelecionada = 0.obs;
-
   RxList<ItensMenuModel> itensMenu = [
     ItensMenuModel(
       chave: "home",

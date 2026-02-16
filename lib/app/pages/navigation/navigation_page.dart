@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:get/get.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
+import 'package:trufapp/app/core/components/custom_icon_button_navigation.dart';
 import 'package:trufapp/app/core/theme/app_fonts_weight.dart';
 import 'package:trufapp/app/pages/navigation/navigation_controller.dart';
 
@@ -70,24 +71,43 @@ class NavigationPage extends StatelessWidget {
                           children: List.generate(
                             navigationController.itensMenu.length,
                             (index) {
-                              return InkWell(
-                                onTap: () => navigationController.mudarAbas(index),
-                                child: Container(
-                                  padding: const EdgeInsets.all(16),
-                                  decoration: BoxDecoration(
-                                    color:
-                                        navigationController.abaSelecionada.value ==
-                                            index
-                                        ? Colors.white
-                                        : Colors.transparent,
-                                    borderRadius: BorderRadius.circular(50),
-                                  ),
-                                  child: Icon(
+                              return CustomIconButtonNavigation(
+                                onTap: () =>
+                                    navigationController.mudarAbas(index),
+                                icone:
                                     navigationController.itensMenu[index].icone,
-                                    size: 32,
-                                  ),
-                                ),
+                                corIcone:
+                                    navigationController.abaSelecionada.value ==
+                                        index
+                                    ? Colors.black
+                                    : Colors.white,
+                                cor:
+                                    navigationController.abaSelecionada.value ==
+                                        index
+                                    ? Colors.white
+                                    : Colors.transparent,
                               );
+                              // return InkWell(
+                              //   onTap: () =>
+                              //       navigationController.mudarAbas(index),
+                              //   child: Container(
+                              //     padding: const EdgeInsets.all(16),
+                              //     decoration: BoxDecoration(
+                              //       color:
+                              //           navigationController
+                              //                   .abaSelecionada
+                              //                   .value ==
+                              //               index
+                              //           ? Colors.white
+                              //           : Colors.transparent,
+                              //       borderRadius: BorderRadius.circular(50),
+                              //     ),
+                              //     child: Icon(
+                              //       navigationController.itensMenu[index].icone,
+                              //       size: 32,
+                              //     ),
+                              //   ),
+                              // );
                             },
                           ),
                         ),
