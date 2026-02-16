@@ -9,7 +9,7 @@ class RedirectPage extends StatelessWidget {
 
   Future<String> _getInitialRoute() {
     log("Checkando dados a serem pré carregados...");
-    return Future.value(Routes.login);
+    return Future.value(Routes.home);
   }
 
   @override
