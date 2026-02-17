@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class CustomIconButtonNavigation extends StatefulWidget {
   final VoidCallback onTap;
   final Color cor;
@@ -44,7 +45,7 @@ class _CustomIconButtonNavigationState
               widget.icone,
               size: isHover ? 34 : 32,
               color: widget.corIcone,
-            ),
+            ),      
           ),
         ),
       ),

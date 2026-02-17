@@ -26,7 +26,9 @@ class NavigationController extends GetxController {
     ItensMenuModel(
       chave: "relatorios",
       icone: LucideIcons.chart_no_axes_combined,
-      tela: AppText(text: "Relatorios", color: Colors.black),
+      tela: const Center(
+        child: AppText(text: "Relatorios", color: Colors.black)
+        ),
     ),
     ItensMenuModel(
       chave: "caixa",

@@ -5,11 +5,11 @@ import 'package:trufapp/app/core/components/apptext.dart';
 import 'package:trufapp/app/core/components/custom_icon_button_navigation.dart';
 import 'package:trufapp/app/core/theme/app_colors.dart';
 import 'package:trufapp/app/core/theme/app_fonts_weight.dart';
-import 'package:trufapp/app/pages/navigation/navigation_controller.dart';
+import 'package:trufapp/app/pages/dashboard/dashboard_controller.dart';
 
-class NavigationPage extends StatelessWidget {
+class Dashboard extends StatelessWidget {
   // late navigationController homeController;
-  const NavigationPage({super.key});
+  const Dashboard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +17,7 @@ class NavigationPage extends StatelessWidget {
       init: NavigationController(),
       builder: (navigationController) {
         return Scaffold(
+          backgroundColor: AppColors.lightMocha10,
           appBar: AppBar(
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(10)),
@@ -82,7 +83,7 @@ class NavigationPage extends StatelessWidget {
                                 corIcone:
                                     navigationController.abaSelecionada.value ==
                                         index
-                                    ? Colors.black
+                                    ? AppColors.darkMocha410
                                     : Colors.white,
                                 cor:
                                     navigationController.abaSelecionada.value ==

@@ -50,7 +50,7 @@ class SelectBoxPage extends StatelessWidget {
                           corHover: AppColors.darkMocha410,
                           mostraBorda: false,
                           acao: () {
-                            Get.offNamed(Routes.navigationMain);
+                            Get.offNamed(Routes.dashboard);
                           },
                         ),
                         CustomButton(
@@ -61,7 +61,7 @@ class SelectBoxPage extends StatelessWidget {
                           corHover: AppColors.darkMocha410,
                           mostraBorda: false,
                           acao: () {
-                            Get.offNamed(Routes.navigationMain);
+                            Get.offNamed(Routes.dashboard);
                           },
                         ),
                       ],

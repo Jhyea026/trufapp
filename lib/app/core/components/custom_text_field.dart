@@ -7,10 +7,11 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
   final VoidCallback? onChanged;
-  final double? width;
-  final double? height;
+  final double? width, height;
   final Widget? prefix;
   final Color? borderColor;
+  final bool obscure;
+
   const CustomTextField({
     super.key,
     required this.hintText,
@@ -19,7 +20,8 @@ class CustomTextField extends StatelessWidget {
     this.width,
     this.height,
     this.prefix,
-    this.borderColor,
+    this.borderColor, 
+    this.obscure = false,
   });
 
   @override
@@ -36,6 +38,7 @@ class CustomTextField extends StatelessWidget {
         controller: controller,
         onChanged: (value) => onChanged?.call(),
         cursorColor: AppColors.lightMocha10,
+        obscureText: obscure,
         style: textStyle(
           // altera o estilo do texto digitado
           color: AppColors.lightMocha10,

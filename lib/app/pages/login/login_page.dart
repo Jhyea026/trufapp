@@ -50,6 +50,7 @@ class LoginPage extends StatelessWidget {
                             ),
                             CustomTextField(
                               hintText: 'Senha',
+                              obscure: true,
                               controller: TextEditingController(),
                             ),
                           ],
