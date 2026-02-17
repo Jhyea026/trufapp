@@ -1,17 +1,29 @@
-# trufapp
+# TrufApp 🍫📱
 
-A new Flutter project.
+TrufApp é um aplicativo desenvolvido em **Flutter**, com foco em performance, organização de código e uma boa experiência do usuário.  
+Este projeto serve como base para aplicações mobile modernas, utilizando boas práticas de arquitetura e componentes reutilizáveis.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Tecnologias Utilizadas
 
-A few resources to get you started if this is your first Flutter project:
+- **Flutter** 3.41.0
+- **Dart**
+- Arquitetura modular e componentes customizados
+- Gerenciamento de estado (ex: GetX / Provider / outro, se desejar acrescentar depois)
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📦 Requisitos
+
+Antes de iniciar o projeto, certifique-se de ter instalado:
+
+- Flutter **3.41.0**
+- Dart compatível com a versão do Flutter
+- Android Studio, VS Code ou outro editor de sua preferência
+- Emulador Android/iOS ou dispositivo físico
+
+Para verificar sua versão do Flutter:
+
+```bash
+flutter --version
