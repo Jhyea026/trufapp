@@ -16,6 +16,7 @@ class SelectBoxPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Material(
+        color: AppColors.lightMocha10,
         child: Padding(
           padding: EdgeInsets.only(left: 21, right: 21),
           child: Column(
