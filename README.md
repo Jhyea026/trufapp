@@ -10,7 +10,7 @@ Este projeto serve como base para aplicações mobile modernas, utilizando boas 
 - **Flutter** 3.41.0
 - **Dart**
 - Arquitetura modular e componentes customizados
-- Gerenciamento de estado (ex: GetX / Provider / outro, se desejar acrescentar depois)
+- Gerenciamento de estado Getx
 
 ---
 
