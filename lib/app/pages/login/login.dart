@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
 import 'package:trufapp/app/core/components/custom_button.dart';
 import 'package:trufapp/app/core/components/custom_text_field.dart';
+import 'package:trufapp/app/core/routes/pages_routes.dart';
 import 'package:trufapp/app/core/theme/app_colors.dart';
 import 'package:trufapp/app/core/theme/app_fonts_weight.dart';
 
@@ -54,7 +56,9 @@ class Login extends StatelessWidget {
                               ),
                           ],
                         ),
-                        CustomButton(texto: 'Entrar', corFundo: AppColors.lightMocha10, mostraBorda: false, carregando: false,)
+                        CustomButton(texto: 'Entrar', corFundo: AppColors.lightMocha10, mostraBorda: false, carregando: false, acao:() {
+                          Get.offNamed(Routes.navigationMain);
+                        },)
                       ],
                     ),
                   )

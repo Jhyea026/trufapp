@@ -33,9 +33,7 @@ class _CustomButtonState extends State<CustomButton> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        print('widget.acao;');
-      },
+      onTap: widget.acao,
       onHover: (isHovering) {
         setState(() {
           hover = isHovering;

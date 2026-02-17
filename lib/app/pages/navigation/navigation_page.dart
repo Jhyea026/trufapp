@@ -3,6 +3,7 @@ import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:get/get.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
 import 'package:trufapp/app/core/components/custom_icon_button_navigation.dart';
+import 'package:trufapp/app/core/theme/app_colors.dart';
 import 'package:trufapp/app/core/theme/app_fonts_weight.dart';
 import 'package:trufapp/app/pages/navigation/navigation_controller.dart';
 
@@ -36,7 +37,7 @@ class NavigationPage extends StatelessWidget {
                 ),
               ],
             ),
-            backgroundColor: Colors.blue,
+            backgroundColor: AppColors.darkMocha410,
           ),
           body: Stack(
             children: [
@@ -60,7 +61,7 @@ class NavigationPage extends StatelessWidget {
                         height: 80,
                         width: Get.width,
                         decoration: const BoxDecoration(
-                          color: Colors.blue,
+                          color: AppColors.darkMocha410,
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(10),
                             topRight: Radius.circular(10),
