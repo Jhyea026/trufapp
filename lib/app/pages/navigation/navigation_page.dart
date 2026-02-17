@@ -32,7 +32,9 @@ class NavigationPage extends StatelessWidget {
                 ),
                 const Spacer(),
                 InkWell(
-                  onTap: () => navigationController.sair,
+                  onTap: () {
+                    navigationController.sair();
+                  },
                   child: const Icon(LucideIcons.log_out, color: Colors.white),
                 ),
               ],

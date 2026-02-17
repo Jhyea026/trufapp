@@ -19,18 +19,17 @@ class LoginPage extends StatelessWidget {
           width: double.infinity,
           height: double.infinity,
           padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-          decoration: BoxDecoration(
-            color: AppColors.lightMocha10
-          ),
+          decoration: BoxDecoration(color: AppColors.lightMocha10),
           child: Column(
             children: [
               Column(
                 children: [
                   Image.asset('assets/images/TrufApp_logo.png'),
                   Container(
+                    constraints: BoxConstraints(maxWidth: 400),
                     decoration: BoxDecoration(
                       color: AppColors.darkMocha410,
-                      borderRadius:BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(20),
                     ),
                     padding: EdgeInsets.fromLTRB(17, 20, 17, 21),
                     child: Column(
@@ -50,24 +49,34 @@ class LoginPage extends StatelessWidget {
                               hintText: "Login",
                             ),
                             CustomTextField(
-                              hintText: 'Senha', 
-                              controller: TextEditingController()
-                              ),
+                              hintText: 'Senha',
+                              controller: TextEditingController(),
+                            ),
                           ],
                         ),
-                        CustomButton(texto: 'Entrar', corFundo: AppColors.lightMocha10, mostraBorda: false, carregando: false, acao:() {
-                          Get.offNamed(Routes.selectBox);
-                        },)
+                        CustomButton(
+                          texto: 'Entrar',
+                          corFundo: AppColors.lightMocha10,
+                          mostraBorda: false,
+                          carregando: false,
+                          acao: () {
+                            Get.offNamed(Routes.selectBox);
+                          },
+                        ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
               Spacer(),
               Padding(
                 padding: const EdgeInsets.only(bottom: 10),
-                child: AppText(text: '© 2025 TrufApp. Todos os direitos reservados.', color: AppColors.darkMocha240, fontSize: 11,),
-              )
+                child: AppText(
+                  text: '© 2025 TrufApp. Todos os direitos reservados.',
+                  color: AppColors.darkMocha240,
+                  fontSize: 11,
+                ),
+              ),
             ],
           ),
         ),
