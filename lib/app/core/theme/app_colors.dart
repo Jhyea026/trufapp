@@ -18,5 +18,5 @@ class AppColors {
   static const Color darkMocha420 = Color(0xFF6D4634);
   static const Color darkMocha430 = Color(0xFF583728);
   static const Color darkMocha450 = Color(0xFF392319);
-  static const Color darkMocha460 = Color(0xFF291C16);
+  static const Color darkMocha460 = Color.fromRGBO(41, 28, 22, 1);
 }
