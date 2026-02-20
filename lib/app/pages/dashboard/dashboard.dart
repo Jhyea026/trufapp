@@ -3,12 +3,13 @@ import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:get/get.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
 import 'package:trufapp/app/core/components/custom_icon_button_navigation.dart';
+import 'package:trufapp/app/core/theme/app_colors.dart';
 import 'package:trufapp/app/core/theme/app_fonts_weight.dart';
-import 'package:trufapp/app/pages/navigation/navigation_controller.dart';
+import 'package:trufapp/app/pages/dashboard/dashboard_controller.dart';
 
-class NavigationPage extends StatelessWidget {
+class Dashboard extends StatelessWidget {
   // late navigationController homeController;
-  const NavigationPage({super.key});
+  const Dashboard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +17,7 @@ class NavigationPage extends StatelessWidget {
       init: NavigationController(),
       builder: (navigationController) {
         return Scaffold(
+          backgroundColor: AppColors.lightMocha10,
           appBar: AppBar(
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(10)),
@@ -31,12 +33,14 @@ class NavigationPage extends StatelessWidget {
                 ),
                 const Spacer(),
                 InkWell(
-                  onTap: () => navigationController.sair,
+                  onTap: () {
+                    navigationController.sair();
+                  },
                   child: const Icon(LucideIcons.log_out, color: Colors.white),
                 ),
               ],
             ),
-            backgroundColor: Colors.blue,
+            backgroundColor: AppColors.darkMocha410,
           ),
           body: Stack(
             children: [
@@ -60,7 +64,7 @@ class NavigationPage extends StatelessWidget {
                         height: 80,
                         width: Get.width,
                         decoration: const BoxDecoration(
-                          color: Colors.blue,
+                          color: AppColors.darkMocha410,
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(10),
                             topRight: Radius.circular(10),
@@ -79,7 +83,7 @@ class NavigationPage extends StatelessWidget {
                                 corIcone:
                                     navigationController.abaSelecionada.value ==
                                         index
-                                    ? Colors.black
+                                    ? AppColors.darkMocha410
                                     : Colors.white,
                                 cor:
                                     navigationController.abaSelecionada.value ==

@@ -3,6 +3,7 @@ import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:get/get.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
 import 'package:trufapp/app/core/models/itens_menu_model.dart';
+import 'package:trufapp/app/core/routes/pages_routes.dart';
 
 class NavigationController extends GetxController {
   RxBool carregando = false.obs;
@@ -25,7 +26,9 @@ class NavigationController extends GetxController {
     ItensMenuModel(
       chave: "relatorios",
       icone: LucideIcons.chart_no_axes_combined,
-      tela: AppText(text: "Relatorios", color: Colors.black),
+      tela: const Center(
+        child: AppText(text: "Relatorios", color: Colors.black)
+        ),
     ),
     ItensMenuModel(
       chave: "caixa",
@@ -49,6 +52,6 @@ class NavigationController extends GetxController {
   }
 
   void sair() {
-    return;
+    Get.offAllNamed(Routes.initial);
   }
 }

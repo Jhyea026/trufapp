@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trufapp/app/core/theme/app_colors.dart';
 import 'package:trufapp/app/core/theme/app_fonts_weight.dart';
 import 'package:trufapp/app/utils/text_style.dart';
 
@@ -6,10 +7,11 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
   final VoidCallback? onChanged;
-  final double? width;
-  final double? height;
+  final double? width, height;
   final Widget? prefix;
   final Color? borderColor;
+  final bool obscure;
+
   const CustomTextField({
     super.key,
     required this.hintText,
@@ -18,7 +20,8 @@ class CustomTextField extends StatelessWidget {
     this.width,
     this.height,
     this.prefix,
-    this.borderColor,
+    this.borderColor, 
+    this.obscure = false,
   });
 
   @override
@@ -34,24 +37,27 @@ class CustomTextField extends StatelessWidget {
       child: TextField(
         controller: controller,
         onChanged: (value) => onChanged?.call(),
-        cursorColor: Colors.grey,
+        cursorColor: AppColors.lightMocha10,
+        obscureText: obscure,
         style: textStyle(
           // altera o estilo do texto digitado
-          color: Colors.white,
+          color: AppColors.lightMocha10,
           fontSize: 18,
           fontWeight: AppFontsWeight.light,
         ),
         decoration: InputDecoration(
-          hintStyle: textStyle(), // altera o estilo do texto placheorder
+          hintStyle: textStyle(
+            color: AppColors.lightMocha10
+          ), // altera o estilo do texto placheorder
           // altera a cor das bordas quando não tá focado
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: borderColor ?? Colors.white),
+            borderSide: BorderSide(color: borderColor ?? AppColors.lightMocha10),
           ),
           focusedBorder: OutlineInputBorder(
             // Altera a cor das bordas quando tá focado
             borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: borderColor ?? Colors.brown),
+            borderSide: BorderSide(color: borderColor ?? AppColors.lightMocha10),
           ),
           // focusColor: Colors.red,
           prefix: prefix,
