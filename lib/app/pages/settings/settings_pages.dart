@@ -13,7 +13,7 @@ class SettingsPages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: EdgeInsets.only(bottom: 100),
+      padding: EdgeInsets.only(bottom: 92),
       child: Column(
         children: [
           SizedBox(height: 12),
