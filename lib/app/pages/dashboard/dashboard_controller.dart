@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
 import 'package:trufapp/app/core/models/itens_menu_model.dart';
 import 'package:trufapp/app/core/routes/pages_routes.dart';
+import 'package:trufapp/app/pages/dashboard/dashboard_home.dart';
 
 class NavigationController extends GetxController {
   RxBool carregando = false.obs;
@@ -12,8 +13,8 @@ class NavigationController extends GetxController {
     ItensMenuModel(
       chave: "home",
       icone: LucideIcons.house,
-      tela: const Center(
-        child: AppText(text: "Home", color: Colors.black),
+      tela: Center(
+        child: DashboardHome(),
       ),
     ),
     ItensMenuModel(
