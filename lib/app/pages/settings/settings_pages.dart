@@ -26,8 +26,8 @@ class SettingsPages extends StatelessWidget {
           SizedBox(height: 24),
           CustomAvatar(
             size: 100,
-            backgroundColor: AppColors.darkMocha460,
-            child: Padding(
+            corFundo: AppColors.darkMocha460,
+            filho: Padding(
               padding: const EdgeInsets.all(18.0),
               child: AppText(
                 text: "JH",
