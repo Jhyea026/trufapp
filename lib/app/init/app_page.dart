@@ -11,6 +11,7 @@ class AppPage extends StatelessWidget {
     return GetMaterialApp(
       scrollBehavior: NoScrollbarBehavior(),
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: 'OpenSans'),
       getPages: PagesRoutes.routes,
       initialRoute: Routes.initial,
     );
