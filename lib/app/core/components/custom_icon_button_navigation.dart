@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class CustomIconButtonNavigation extends StatefulWidget {
   final VoidCallback onTap;
   final Color cor;
@@ -29,6 +28,7 @@ class _CustomIconButtonNavigationState
     return MouseRegion(
       onEnter: (_) => setState(() => isHover = true),
       onExit: (_) => setState(() => isHover = false),
+      cursor: SystemMouseCursors.click,
       child: Material(
         color: Colors.transparent,
         child: InkWell(
@@ -36,7 +36,7 @@ class _CustomIconButtonNavigationState
           onTap: widget.onTap,
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 500),
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
               color: isHover ? widget.cor.withValues(alpha: 0.85) : widget.cor,
               borderRadius: BorderRadius.circular(50),
@@ -45,7 +45,7 @@ class _CustomIconButtonNavigationState
               widget.icone,
               size: isHover ? 34 : 32,
               color: widget.corIcone,
-            ),      
+            ),
           ),
         ),
       ),

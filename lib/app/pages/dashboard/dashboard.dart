@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:get/get.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
+import 'package:trufapp/app/core/components/custom_avatar.dart';
 import 'package:trufapp/app/core/components/custom_icon_button_navigation.dart';
 import 'package:trufapp/app/core/theme/app_colors.dart';
 import 'package:trufapp/app/core/theme/app_fonts_weight.dart';
@@ -19,26 +20,50 @@ class Dashboard extends StatelessWidget {
         return Scaffold(
           backgroundColor: AppColors.lightMocha10,
           appBar: AppBar(
+            toolbarHeight: 70,
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(10)),
             ),
-            title: Row(
-              children: [
-                CircleAvatar(
-                  child: AppText(
-                    text: "JH",
-                    color: Colors.black,
-                    fontWeight: AppFontsWeight.bold,
+            titleSpacing: 0,
+            title: Padding(
+              padding: const EdgeInsets.only(left: 12, right: 12),
+              child: Row(
+                children: [
+                  CustomAvatar(
+                    size: 56,
+                    backgroundColor: AppColors.darkMocha460,
+                    child: Padding(
+                      padding: const EdgeInsets.all(14.0),
+                      child: AppText(
+                        text: "JH",
+                        color: AppColors.lightMocha10,
+                        fontWeight: AppFontsWeight.semiBold,
+                        fontSize: 100,
+                      ),
+                    ),
                   ),
-                ),
-                const Spacer(),
-                InkWell(
-                  onTap: () {
-                    navigationController.sair();
-                  },
-                  child: const Icon(LucideIcons.log_out, color: Colors.white),
-                ),
-              ],
+                  const Spacer(),
+                  Row(
+                    spacing: 24,
+                    children: [
+                      InkWell(
+                        onTap: navigationController.mudarAmbiente,
+                        child: const Icon(
+                          LucideIcons.arrow_right_left,
+                          color: Colors.white,
+                        ),
+                      ),
+                      InkWell(
+                        onTap: navigationController.sair,
+                        child: const Icon(
+                          LucideIcons.log_out,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
             backgroundColor: AppColors.darkMocha410,
           ),
@@ -91,27 +116,6 @@ class Dashboard extends StatelessWidget {
                                     ? Colors.white
                                     : Colors.transparent,
                               );
-                              // return InkWell(
-                              //   onTap: () =>
-                              //       navigationController.mudarAbas(index),
-                              //   child: Container(
-                              //     padding: const EdgeInsets.all(16),
-                              //     decoration: BoxDecoration(
-                              //       color:
-                              //           navigationController
-                              //                   .abaSelecionada
-                              //                   .value ==
-                              //               index
-                              //           ? Colors.white
-                              //           : Colors.transparent,
-                              //       borderRadius: BorderRadius.circular(50),
-                              //     ),
-                              //     child: Icon(
-                              //       navigationController.itensMenu[index].icone,
-                              //       size: 32,
-                              //     ),
-                              //   ),
-                              // );
                             },
                           ),
                         ),
