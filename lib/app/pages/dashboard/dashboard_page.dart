@@ -7,8 +7,8 @@ import 'package:trufapp/app/core/components/dashboard_card.dart';
 import 'package:trufapp/app/core/theme/app_colors.dart';
 import 'package:trufapp/app/core/theme/app_fonts_weight.dart';
 
-class DashboardHome extends StatelessWidget {
-  const DashboardHome({super.key});
+class DashboardPage extends StatelessWidget {
+  const DashboardPage({super.key});
 
   @override
   Widget build(BuildContext context) {
