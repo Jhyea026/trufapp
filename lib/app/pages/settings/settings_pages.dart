@@ -46,12 +46,14 @@ class SettingsPages extends StatelessWidget {
                   hintText: 'Nome',
                   controller: TextEditingController(),
                   borderColor: AppColors.darkMocha240,
+                  colorHint: AppColors.darkMocha240,
                 ),
                 SizedBox(height: 24),
                 CustomTextField(
                   hintText: 'Email',
                   controller: TextEditingController(),
                   borderColor: AppColors.darkMocha240,
+                  colorHint: AppColors.darkMocha240,
                 ),
                 SizedBox(height: 36),
                 CustomButton(
@@ -62,7 +64,6 @@ class SettingsPages extends StatelessWidget {
                   corHover: AppColors.darkMocha430,
                   corTexto: AppColors.lightMocha10,
                 ),
-
                 Padding(
                   padding: const EdgeInsets.only(top: 32, bottom: 32),
                   child: CustomDivider(),
@@ -83,7 +84,7 @@ class SettingsPages extends StatelessWidget {
                   corTexto: AppColors.lightMocha10,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 32, bottom: 32),
+                  padding: const EdgeInsets.only(top: 24, bottom: 24),
                   child: CustomDivider(),
                 ),
                 CustomButton(
