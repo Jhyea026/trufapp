@@ -11,11 +11,12 @@ import 'package:trufapp/app/pages/settings/settings_pages.dart';
 class HomeController extends GetxController {
   RxBool carregando = false.obs;
   RxInt abaSelecionada = 0.obs;
+
   RxList<ItensMenuModel> itensMenu = [
     ItensMenuModel(
       chave: "home",
       icone: LucideIcons.house,
-      tela: Center(child: DashboardPage()),
+      tela: DashboardPage(),
     ),
     ItensMenuModel(
       chave: "vendas",
@@ -63,6 +64,8 @@ class HomeController extends GetxController {
     abaSelecionada.value = index;
     update();
   }
+
+  ItensMenuModel get itemAtual => itensMenu[abaSelecionada.value];
 
   void sair() {
     Get.offAllNamed(Routes.initial);

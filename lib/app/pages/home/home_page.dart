@@ -17,56 +17,61 @@ class HomePage extends StatelessWidget {
     return GetBuilder<HomeController>(
       init: HomeController(),
       builder: (homeController) {
+        final isConfig = homeController.itemAtual.chave == "configuracoes";
         return Scaffold(
           backgroundColor: AppColors.lightMocha10,
-          appBar: AppBar(
-            toolbarHeight: 70,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.vertical(bottom: Radius.circular(10)),
-            ),
-            titleSpacing: 0,
-            title: Padding(
-              padding: const EdgeInsets.only(left: 12, right: 12),
-              child: Row(
-                children: [
-                  CustomAvatar(
-                    size: 56,
-                    backgroundColor: AppColors.darkMocha460,
-                    child: Padding(
-                      padding: const EdgeInsets.all(14.0),
-                      child: AppText(
-                        text: "JH",
-                        color: AppColors.lightMocha10,
-                        fontWeight: AppFontsWeight.semiBold,
-                        fontSize: 100,
-                      ),
+          appBar: isConfig
+              ? null
+              : AppBar(
+                  toolbarHeight: 70,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.vertical(
+                      bottom: Radius.circular(10),
                     ),
                   ),
-                  const Spacer(),
-                  Row(
-                    spacing: 24,
-                    children: [
-                      InkWell(
-                        onTap: homeController.mudarAmbiente,
-                        child: const Icon(
-                          LucideIcons.arrow_right_left,
-                          color: Colors.white,
+                  titleSpacing: 0,
+                  title: Padding(
+                    padding: const EdgeInsets.only(left: 12, right: 12),
+                    child: Row(
+                      children: [
+                        CustomAvatar(
+                          size: 56,
+                          backgroundColor: AppColors.darkMocha460,
+                          child: Padding(
+                            padding: const EdgeInsets.all(14.0),
+                            child: AppText(
+                              text: "JH",
+                              color: AppColors.lightMocha10,
+                              fontWeight: AppFontsWeight.semiBold,
+                              fontSize: 100,
+                            ),
+                          ),
                         ),
-                      ),
-                      InkWell(
-                        onTap: homeController.sair,
-                        child: const Icon(
-                          LucideIcons.log_out,
-                          color: Colors.white,
+                        const Spacer(),
+                        Row(
+                          spacing: 24,
+                          children: [
+                            InkWell(
+                              onTap: homeController.mudarAmbiente,
+                              child: const Icon(
+                                LucideIcons.arrow_right_left,
+                                color: Colors.white,
+                              ),
+                            ),
+                            InkWell(
+                              onTap: homeController.sair,
+                              child: const Icon(
+                                LucideIcons.log_out,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ],
-              ),
-            ),
-            backgroundColor: AppColors.darkMocha410,
-          ),
+                  backgroundColor: AppColors.darkMocha410,
+                ),
           body: Stack(
             children: [
               Row(
@@ -101,18 +106,14 @@ class HomePage extends StatelessWidget {
                             homeController.itensMenu.length,
                             (index) {
                               return CustomIconButtonNavigation(
-                                onTap: () =>
-                                    homeController.mudarAbas(index),
-                                icone:
-                                    homeController.itensMenu[index].icone,
+                                onTap: () => homeController.mudarAbas(index),
+                                icone: homeController.itensMenu[index].icone,
                                 corIcone:
-                                    homeController.abaSelecionada.value ==
-                                        index
+                                    homeController.abaSelecionada.value == index
                                     ? AppColors.darkMocha410
                                     : Colors.white,
                                 cor:
-                                    homeController.abaSelecionada.value ==
-                                        index
+                                    homeController.abaSelecionada.value == index
                                     ? Colors.white
                                     : Colors.transparent,
                               );
