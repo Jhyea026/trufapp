@@ -10,7 +10,7 @@ class Etiqueta extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(4),
+      padding: EdgeInsets.symmetric(horizontal: 3, vertical: 1),
       decoration: BoxDecoration(
         border: Border.all(color: corBorda ?? AppColors.darkMocha140),
         borderRadius: BorderRadius.circular(4),
@@ -18,7 +18,8 @@ class Etiqueta extends StatelessWidget {
       child: AppText(
         text: texto,
         color: corBorda ?? AppColors.darkMocha240,
-        fontSize: 10,
+        fontSize: 9,
+        
       ),
     );
   }
