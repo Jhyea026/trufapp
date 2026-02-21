@@ -5,6 +5,7 @@ import 'package:trufapp/app/core/components/apptext.dart';
 import 'package:trufapp/app/core/models/itens_menu_modelo.dart';
 import 'package:trufapp/app/core/routes/pages_routes.dart';
 import 'package:trufapp/app/core/theme/app_colors.dart';
+import 'package:trufapp/app/pages/carrinho/carrinho_page.dart';
 import 'package:trufapp/app/pages/dashboard/dashboard_page.dart';
 import 'package:trufapp/app/pages/configuracoes/configuracoes_pages.dart';
 
@@ -34,9 +35,7 @@ class HomeController extends GetxController {
     ItensMenuModelo(
       chave: "carrinho",
       icone: LucideIcons.shopping_cart,
-      tela: const Center(
-        child: AppText(text: "Carrinho", color: AppColors.darkMocha240),
-      ),
+      tela: const CarrinhoPage(),
     ),
     ItensMenuModelo(
       chave: "clientes",
