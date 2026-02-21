@@ -13,8 +13,8 @@ class HomeController extends GetxController {
   RxBool carregando = false.obs;
   RxInt abaSelecionada = 0.obs;
 
-  RxList<ItensMenuModel> itensMenu = [
-    ItensMenuModel(
+  RxList<ItensMenuModelo> itensMenu = [
+    ItensMenuModelo(
       chave: "home",
       icone: LucideIcons.house,
       tela: DashboardPage(),
@@ -64,7 +64,7 @@ class HomeController extends GetxController {
     update();
   }
 
-  ItensMenuModel get itemAtual => itensMenu[abaSelecionada.value];
+  ItensMenuModelo get itemAtual => itensMenu[abaSelecionada.value];
 
   void sair() {
     Get.offAllNamed(Routes.initial);
