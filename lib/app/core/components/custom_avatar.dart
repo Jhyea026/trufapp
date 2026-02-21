@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:trufapp/app/core/theme/app_colors.dart';
 
 class CustomAvatar extends StatelessWidget {
-  final Widget child;
-  final double radius;
-  final Color? backgroundColor;
+  final Widget filho;
+  final double raio;
+  final Color? corFundo;
   final EdgeInsetsGeometry padding;
-  final BoxBorder? border;
+  final BoxBorder? bordas;
   final double size;
 
   const CustomAvatar({
     super.key,
-    required this.child,
-    this.radius = 40,
-    this.backgroundColor,
+    required this.filho,
+    this.raio = 40,
+    this.corFundo,
     this.padding = const EdgeInsets.all(12),
-    this.border,  this.size = 80,
+    this.bordas,  this.size = 80,
   });
 
   @override
@@ -25,13 +25,13 @@ class CustomAvatar extends StatelessWidget {
       height: size,
       padding: padding,
       decoration: BoxDecoration(
-        color: backgroundColor ?? AppColors.lightMocha10,
+        color: corFundo ?? AppColors.lightMocha10,
         shape: BoxShape.circle,
-        border: border,
+        border: bordas,
       ),
       child: FittedBox(
         fit: BoxFit.contain,
-        child: child,
+        child: filho,
       ),
     );
   }

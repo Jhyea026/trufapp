@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class ItensMenuModel {
+class ItensMenuModelo {
   final String chave;
   final IconData icone;
   final Widget tela;
 
-  ItensMenuModel({required this.chave, required this.icone, required this.tela});
+  ItensMenuModelo({required this.chave, required this.icone, required this.tela});
 }

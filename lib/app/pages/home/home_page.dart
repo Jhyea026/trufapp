@@ -31,8 +31,8 @@ class HomePage extends StatelessWidget {
                 children: [
                   CustomAvatar(
                     size: 56,
-                    backgroundColor: AppColors.darkMocha460,
-                    child: Padding(
+                    corFundo: AppColors.darkMocha460,
+                    filho: Padding(
                       padding: const EdgeInsets.all(14.0),
                       child: AppText(
                         text: "JH",
