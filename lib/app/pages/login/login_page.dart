@@ -6,6 +6,7 @@ import 'package:trufapp/app/core/components/custom_text_field.dart';
 import 'package:trufapp/app/core/routes/pages_routes.dart';
 import 'package:trufapp/app/core/theme/app_colors.dart';
 import 'package:trufapp/app/core/theme/app_fonts_weight.dart';
+import 'package:trufapp/app/utils/custom_shadow.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -30,6 +31,9 @@ class LoginPage extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: AppColors.darkMocha410,
                       borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        customShadow()
+                      ]
                     ),
                     padding: EdgeInsets.fromLTRB(17, 20, 17, 21),
                     child: Column(

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lucide/flutter_lucide.dart';
+import 'package:trufapp/app/core/components/addButtom.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
 import 'package:trufapp/app/core/components/contador_quantidade.dart';
+import 'package:trufapp/app/core/components/custom_button.dart';
 import 'package:trufapp/app/core/components/etiqueta.dart';
 import 'package:trufapp/app/core/theme/app_colors.dart';
 import 'package:trufapp/app/core/theme/app_fonts_weight.dart';
@@ -11,13 +12,12 @@ class CarrinhoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double alturaBotao = 49;
     return Container(
-      padding: EdgeInsets.only(left: 12, right: 12, top: 12, bottom: 86),
+      padding: EdgeInsets.only(left: 12, right: 12, top: 12, bottom: 90),
       child: Stack(
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 46),
+            padding: const EdgeInsets.only(bottom: 0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -25,19 +25,12 @@ class CarrinhoPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     AppText(
-                      text: 'Casa',
+                      text: 'Carrinho',
                       color: AppColors.darkMocha240,
                       fontSize: 28,
                       fontWeight: AppFontsWeight.bold,
                     ),
-                    InkWell(
-                      onTap: () {},
-                      child: const Icon(
-                        LucideIcons.trash,
-                        color: AppColors.secondary500,
-                        size: 32,
-                      ),
-                    ),
+                    Addbuttom(),
                   ],
                 ),
                 SizedBox(height: 12),
@@ -70,14 +63,15 @@ class CarrinhoPage extends StatelessWidget {
                                       AppText(
                                         text: "Produto ${index + 1}",
                                         color: AppColors.darkMocha240,
+                                        fontSize: 14,
+                                        fontWeight: AppFontsWeight.semiBold,
                                       ),
-                                      const SizedBox(height: 2),
                                       Etiqueta(
                                         texto: index % 2 == 0
-                                            ? "Trufas"
-                                            : "Chocolates",
+                                            ? "Trufa"
+                                            : "Chocolate",
                                       ),
-                                      const SizedBox(height: 2),
+                                      const SizedBox(height: 5),
                                       Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
@@ -110,29 +104,18 @@ class CarrinhoPage extends StatelessWidget {
 
           Align(
             alignment: Alignment.bottomCenter,
-            child: InkWell(
-              onTap: () {},
-              child: Container(
-                height: alturaBotao,
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: AppColors.darkMocha420,
-                  borderRadius: BorderRadius.circular(10),
-                ),
+            child: CustomButton(
+              corHover: AppColors.darkMocha410,
+              corFundo: AppColors.darkMocha420,
+              mostraBorda: false,
+              mostraSombra: true,
+              filho: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    AppText(
-                      text: 'Crair venda',
-                      color: AppColors.lightMocha10,
-                      fontSize: 18,
-                    ),
-                    AppText(
-                      text: 'R\$ 10,00',
-                      color: AppColors.lightMocha10,
-                      fontSize: 18,
-                      fontWeight: AppFontsWeight.bold,
-                    ),
+                    AppText(text: 'Criar venda'),
+                    AppText(text: 'R\$ 10,00', fontWeight: AppFontsWeight.bold),
                   ],
                 ),
               ),
