@@ -9,8 +9,8 @@ class CustomTextField extends StatelessWidget {
   final VoidCallback? onChanged;
   final double? width, height;
   final Widget? prefix;
-  final Color? borderColor;
-  final bool obscure;
+  final Color? borderColor, colorHint;
+  final bool obscure; 
 
   const CustomTextField({
     super.key,
@@ -21,7 +21,7 @@ class CustomTextField extends StatelessWidget {
     this.height,
     this.prefix,
     this.borderColor, 
-    this.obscure = false,
+    this.obscure = false, this.colorHint,
   });
 
   @override
@@ -47,7 +47,7 @@ class CustomTextField extends StatelessWidget {
         ),
         decoration: InputDecoration(
           hintStyle: textStyle(
-            color: AppColors.lightMocha10
+            color: colorHint ?? AppColors.lightMocha10
           ), // altera o estilo do texto placheorder
           // altera a cor das bordas quando não tá focado
           enabledBorder: OutlineInputBorder(
