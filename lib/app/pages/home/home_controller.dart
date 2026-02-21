@@ -5,17 +5,17 @@ import 'package:trufapp/app/core/components/apptext.dart';
 import 'package:trufapp/app/core/models/itens_menu_model.dart';
 import 'package:trufapp/app/core/routes/pages_routes.dart';
 import 'package:trufapp/app/core/theme/app_colors.dart';
-import 'package:trufapp/app/pages/dashboard/dashboard_home.dart';
+import 'package:trufapp/app/pages/dashboard/dashboard_page.dart';
 import 'package:trufapp/app/pages/settings/settings_pages.dart';
 
-class NavigationController extends GetxController {
+class HomeController extends GetxController {
   RxBool carregando = false.obs;
   RxInt abaSelecionada = 0.obs;
   RxList<ItensMenuModel> itensMenu = [
     ItensMenuModel(
       chave: "home",
       icone: LucideIcons.house,
-      tela: Center(child: DashboardHome()),
+      tela: Center(child: DashboardPage()),
     ),
     ItensMenuModel(
       chave: "vendas",

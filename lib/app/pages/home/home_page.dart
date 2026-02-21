@@ -6,17 +6,17 @@ import 'package:trufapp/app/core/components/custom_avatar.dart';
 import 'package:trufapp/app/core/components/custom_icon_button_navigation.dart';
 import 'package:trufapp/app/core/theme/app_colors.dart';
 import 'package:trufapp/app/core/theme/app_fonts_weight.dart';
-import 'package:trufapp/app/pages/dashboard/dashboard_controller.dart';
+import 'package:trufapp/app/pages/home/home_controller.dart';
 
-class Dashboard extends StatelessWidget {
+class HomePage extends StatelessWidget {
   // late navigationController homeController;
-  const Dashboard({super.key});
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<NavigationController>(
-      init: NavigationController(),
-      builder: (navigationController) {
+    return GetBuilder<HomeController>(
+      init: HomeController(),
+      builder: (homeController) {
         return Scaffold(
           backgroundColor: AppColors.lightMocha10,
           appBar: AppBar(
@@ -47,14 +47,14 @@ class Dashboard extends StatelessWidget {
                     spacing: 24,
                     children: [
                       InkWell(
-                        onTap: navigationController.mudarAmbiente,
+                        onTap: homeController.mudarAmbiente,
                         child: const Icon(
                           LucideIcons.arrow_right_left,
                           color: Colors.white,
                         ),
                       ),
                       InkWell(
-                        onTap: navigationController.sair,
+                        onTap: homeController.sair,
                         child: const Icon(
                           LucideIcons.log_out,
                           color: Colors.white,
@@ -73,8 +73,8 @@ class Dashboard extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Container(
-                      child: navigationController
-                          .itensMenu[navigationController.abaSelecionada.value]
+                      child: homeController
+                          .itensMenu[homeController.abaSelecionada.value]
                           .tela,
                     ),
                   ),
@@ -98,20 +98,20 @@ class Dashboard extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: List.generate(
-                            navigationController.itensMenu.length,
+                            homeController.itensMenu.length,
                             (index) {
                               return CustomIconButtonNavigation(
                                 onTap: () =>
-                                    navigationController.mudarAbas(index),
+                                    homeController.mudarAbas(index),
                                 icone:
-                                    navigationController.itensMenu[index].icone,
+                                    homeController.itensMenu[index].icone,
                                 corIcone:
-                                    navigationController.abaSelecionada.value ==
+                                    homeController.abaSelecionada.value ==
                                         index
                                     ? AppColors.darkMocha410
                                     : Colors.white,
                                 cor:
-                                    navigationController.abaSelecionada.value ==
+                                    homeController.abaSelecionada.value ==
                                         index
                                     ? Colors.white
                                     : Colors.transparent,
