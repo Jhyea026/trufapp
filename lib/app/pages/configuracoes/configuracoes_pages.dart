@@ -7,8 +7,8 @@ import 'package:trufapp/app/core/components/custom_text_field.dart';
 import 'package:trufapp/app/core/theme/app_colors.dart';
 import 'package:trufapp/app/core/theme/app_fonts_weight.dart';
 
-class SettingsPages extends StatelessWidget {
-  const SettingsPages({super.key});
+class ConfiguracoesPages extends StatelessWidget {
+  const ConfiguracoesPages({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +26,8 @@ class SettingsPages extends StatelessWidget {
           SizedBox(height: 24),
           CustomAvatar(
             size: 100,
-            backgroundColor: AppColors.darkMocha460,
-            child: Padding(
+            corFundo: AppColors.darkMocha460,
+            filho: Padding(
               padding: const EdgeInsets.all(18.0),
               child: AppText(
                 text: "JH",

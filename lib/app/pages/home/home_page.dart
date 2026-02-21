@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
                   toolbarHeight: 70,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.vertical(
-                      bottom: Radius.circular(10),
+                      bottom: Radius.circular(10),         
                     ),
                   ),
                   titleSpacing: 0,
