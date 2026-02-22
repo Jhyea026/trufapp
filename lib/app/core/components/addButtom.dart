@@ -29,7 +29,7 @@ class _AddbuttomState extends State<Addbuttom> {
         height: 48,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
-          color: hover ? AppColors.darkMocha430 : AppColors.darkMocha460,
+          color: hover ? AppColors.darkMocha450 : AppColors.darkMocha460,
 
         ),
         child: Icon(LucideIcons.plus, size: 32, color: AppColors.lightMocha10,)

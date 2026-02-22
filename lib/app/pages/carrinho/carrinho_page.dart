@@ -30,7 +30,7 @@ class CarrinhoPage extends StatelessWidget {
                       fontSize: 28,
                       fontWeight: AppFontsWeight.bold,
                     ),
-                    Addbuttom(),
+                    Addbuttom(acao: () {}),
                   ],
                 ),
                 SizedBox(height: 12),
@@ -105,6 +105,7 @@ class CarrinhoPage extends StatelessWidget {
           Align(
             alignment: Alignment.bottomCenter,
             child: CustomButton(
+              acao: () {},
               corHover: AppColors.darkMocha410,
               corFundo: AppColors.darkMocha420,
               mostraBorda: false,

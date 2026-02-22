@@ -7,6 +7,7 @@ class AppColors {
   static const Color secondary400 = Color(0xFFE53B57);
   static const Color lightMocha10 = Color(0xFFFFFCFC);
   static const Color lightMocha30 = Color(0xFFFFEDDE);
+  static const Color lightMocha40 = Color(0xFFFFE1CE);
   static const Color darkMocha130 = Color(0xFFEEEEF0);
   static const Color darkMocha140 = Color(0xFFB2B3BD);
   static const Color darkMocha150 = Color(0xFF797B86);
