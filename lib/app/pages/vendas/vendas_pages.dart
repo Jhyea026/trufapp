@@ -7,6 +7,8 @@ import 'package:trufapp/app/core/components/custom_text_field.dart';
 import 'package:trufapp/app/core/components/etiqueta.dart';
 import 'package:trufapp/app/core/theme/app_colors.dart';
 import 'package:trufapp/app/core/theme/app_fonts_weight.dart';
+import 'package:trufapp/app/pages/dialogs/bottom_sheet_padrao.dart';
+import 'package:trufapp/app/pages/dialogs/modal_padrao.dart';
 import 'package:trufapp/app/pages/vendas/vendas_controller.dart';
 import 'package:trufapp/app/utils/data_time_custom.dart';
 
@@ -51,6 +53,15 @@ class VendasPages extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0),
                     child: CustomButton(
+                      acao: () {
+                        if (Get.width > 600) {
+                          Get.dialog(ModalPadrao(filho: AppText(text: "text")));
+                        } else {
+                          Get.bottomSheet(
+                            BottomSheetPadrao(filho: AppText(text: "text")),
+                          );
+                        }
+                      },
                       largura: 32,
                       filho: Icon(LucideIcons.funnel, size: 32),
                       mostraBorda: false,
