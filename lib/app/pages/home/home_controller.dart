@@ -8,6 +8,7 @@ import 'package:trufapp/app/core/theme/app_colors.dart';
 import 'package:trufapp/app/pages/carrinho/carrinho_page.dart';
 import 'package:trufapp/app/pages/dashboard/dashboard_page.dart';
 import 'package:trufapp/app/pages/configuracoes/configuracoes_pages.dart';
+import 'package:trufapp/app/pages/vendas/vendas_pages.dart';
 
 class HomeController extends GetxController {
   RxBool carregando = false.obs;
@@ -22,9 +23,7 @@ class HomeController extends GetxController {
     ItensMenuModelo(
       chave: "vendas",
       icone: LucideIcons.badge_dollar_sign,
-      tela: const Center(
-        child: AppText(text: "Vendas", color: AppColors.darkMocha240),
-      ),
+      tela: const VendasPages(),
     ),
     ItensMenuModelo(
       chave: "caixa",
