@@ -24,7 +24,7 @@ class VendasPages extends StatelessWidget {
             top: 12,
             right: 12,
             left: 12,
-            bottom: 92,
+            bottom: 80,
           ),
           child: Column(
             children: [

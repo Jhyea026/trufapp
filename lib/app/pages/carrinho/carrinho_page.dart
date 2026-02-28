@@ -13,7 +13,7 @@ class CarrinhoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 12, right: 12, top: 12, bottom: 90),
+      padding: EdgeInsets.only(left: 12, right: 12, top: 12, bottom: 80),
       child: Stack(
         children: [
           Padding(
@@ -104,20 +104,26 @@ class CarrinhoPage extends StatelessWidget {
 
           Align(
             alignment: Alignment.bottomCenter,
-            child: CustomButton(
-              acao: () {},
-              corHover: AppColors.darkMocha410,
-              corFundo: AppColors.darkMocha420,
-              mostraBorda: false,
-              mostraSombra: true,
-              filho: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    AppText(text: 'Criar venda'),
-                    AppText(text: 'R\$ 10,00', fontWeight: AppFontsWeight.bold),
-                  ],
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 12),
+              child: CustomButton(
+                acao: () {},
+                corHover: AppColors.darkMocha410,
+                corFundo: AppColors.darkMocha420,
+                mostraBorda: false,
+                mostraSombra: true,
+                filho: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      AppText(text: 'Criar venda'),
+                      AppText(
+                        text: 'R\$ 10,00',
+                        fontWeight: AppFontsWeight.bold,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
