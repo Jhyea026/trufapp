@@ -22,11 +22,11 @@ class VendasPages extends StatelessWidget {
       // initState: (_) {},
       builder: (vendasController) {
         return Padding(
-          padding: const EdgeInsets.only(
+          padding:  EdgeInsets.only(
             top: 12,
             right: 12,
             left: 12,
-            bottom: 80,
+            bottom: Get.width < 600 ? 80 : 12,
           ),
           child: Column(
             children: [
