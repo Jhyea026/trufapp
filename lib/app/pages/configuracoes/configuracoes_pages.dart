@@ -4,6 +4,7 @@ import 'package:trufapp/app/core/components/custom_avatar.dart';
 import 'package:trufapp/app/core/components/custom_button.dart';
 import 'package:trufapp/app/core/components/custom_divider.dart';
 import 'package:trufapp/app/core/components/custom_text_field.dart';
+import 'package:trufapp/app/core/components/dropdown_widget.dart';
 import 'package:trufapp/app/core/theme/app_colors.dart';
 import 'package:trufapp/app/core/theme/app_fonts_weight.dart';
 
@@ -36,6 +37,14 @@ class ConfiguracoesPages extends StatelessWidget {
                 fontSize: 100,
               ),
             ),
+          ),
+          DropdownWidget(
+            titulo: "Categoria",
+            itens: [
+              DropdownMenuEntry(value: 'op1', label: 'Opção 1'),
+              DropdownMenuEntry(value: 'op2', label: 'Opção 2'),
+              DropdownMenuEntry(value: 'op3', label: 'Opção 3'),
+            ],
           ),
           Container(
             padding: EdgeInsets.all(24),
