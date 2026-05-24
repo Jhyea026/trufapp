@@ -10,7 +10,7 @@ class CustomTextField extends StatelessWidget {
   final double? width, height;
   final BorderRadius? borderRadius;
   final Widget? prefix;
-  final Color? borderColor, colorHint;
+  final Color? borderColor, colorHint, textColor, focusBorderColor;
   final bool obscure; 
 
   const CustomTextField({
@@ -22,7 +22,7 @@ class CustomTextField extends StatelessWidget {
     this.height,
     this.prefix,
     this.borderColor, 
-    this.obscure = false, this.colorHint, this.borderRadius,
+    this.obscure = false, this.colorHint, this.borderRadius, this.textColor, this.focusBorderColor,
   });
 
   @override
@@ -42,11 +42,12 @@ class CustomTextField extends StatelessWidget {
         obscureText: obscure,
         style: textStyle(
           // altera o estilo do texto digitado
-          color: AppColors.lightMocha10,
+          color: textColor ??AppColors.lightMocha10,
           fontSize: 18,
           fontWeight: AppFontsWeight.light,
         ),
         decoration: InputDecoration(
+          
           hintStyle: textStyle(
             color: colorHint ?? AppColors.lightMocha10
           ), // altera o estilo do texto placheorder
@@ -58,7 +59,7 @@ class CustomTextField extends StatelessWidget {
           focusedBorder: OutlineInputBorder(
             // Altera a cor das bordas quando tá focado
             borderRadius: borderRadius ?? BorderRadius.circular(10),
-            borderSide: BorderSide(color: borderColor ?? AppColors.lightMocha10),
+            borderSide: BorderSide(color: focusBorderColor ?? AppColors.lightMocha10),
           ),
           // focusColor: Colors.red,
           prefix: prefix,

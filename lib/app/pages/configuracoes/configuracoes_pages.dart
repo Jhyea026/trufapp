@@ -45,15 +45,19 @@ class ConfiguracoesPages extends StatelessWidget {
                 CustomTextField(
                   hintText: 'Nome',
                   controller: TextEditingController(),
-                  borderColor: AppColors.darkMocha240,
-                  colorHint: AppColors.darkMocha240,
+                  textColor: AppColors.darkMocha410,
+                  borderColor: AppColors.darkMocha180,
+                  focusBorderColor: AppColors.darkMocha410,
+                  colorHint: AppColors.darkMocha150,
                 ),
                 SizedBox(height: 24),
                 CustomTextField(
                   hintText: 'Email',
                   controller: TextEditingController(),
-                  borderColor: AppColors.darkMocha240,
-                  colorHint: AppColors.darkMocha240,
+                  textColor: AppColors.darkMocha410,
+                  borderColor: AppColors.darkMocha180,
+                  focusBorderColor: AppColors.darkMocha410,
+                  colorHint: AppColors.darkMocha150,
                 ),
                 SizedBox(height: 36),
                 CustomButton(

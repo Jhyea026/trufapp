@@ -46,8 +46,10 @@ class VendasPages extends StatelessWidget {
                     child: CustomTextField(
                       hintText: 'Buscar',
                       controller: TextEditingController(),
-                      borderColor: AppColors.darkMocha240,
-                      colorHint: AppColors.darkMocha240,
+                      textColor: AppColors.darkMocha410,
+                      borderColor: AppColors.darkMocha180,
+                      focusBorderColor: AppColors.darkMocha410,
+                      colorHint: AppColors.darkMocha150,
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
@@ -70,6 +72,7 @@ class VendasPages extends StatelessWidget {
                   ),
                 ],
               ),
+              SizedBox(height: 12,),
               Expanded(
                 child: SingleChildScrollView(
                   // padding: EdgeInsets.all(12),
