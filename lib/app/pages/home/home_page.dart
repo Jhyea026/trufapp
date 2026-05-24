@@ -88,6 +88,7 @@ class HomePage extends StatelessWidget {
               ),
               backgroundColor: AppColors.darkMocha410,
             ),
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Row(
