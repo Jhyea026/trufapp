@@ -1,4 +1,4 @@
 class StatusEtiquetas {
   static const String pendente = 'pendente';
-  static const String finaliziado = 'finaliziado';
+  static const String finalizado = 'finalizado';
 }

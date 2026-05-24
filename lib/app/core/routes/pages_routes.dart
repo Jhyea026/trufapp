@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:trufapp/app/init/redirect_page.dart';
 import 'package:trufapp/app/pages/home/home_page.dart';
 import 'package:trufapp/app/pages/login/login_page.dart';
-import 'package:trufapp/app/pages/select-box/select_box_page.dart';
+import 'package:trufapp/app/pages/caixa_selecao/caixa_selecao_page.dart';
 part 'routes.dart';
 
 class PagesRoutes {
