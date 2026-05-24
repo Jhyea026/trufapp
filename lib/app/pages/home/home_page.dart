@@ -33,6 +33,7 @@ class HomePage extends StatelessWidget {
   Widget _buildMobile(bool isConfig, HomeController homeController) {
     return Scaffold(
       backgroundColor: AppColors.lightMocha10,
+      
       appBar: isConfig
           ? null
           : AppBar(

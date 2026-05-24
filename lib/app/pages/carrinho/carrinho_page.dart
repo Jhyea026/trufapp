@@ -69,7 +69,7 @@ class CarrinhoPage extends StatelessWidget {
                                       AppText(
                                         text: "Produto ${index + 1}",
                                         color: AppColors.darkMocha240,
-                                        fontSize: 14,
+                                        fontSize: 18,
                                         fontWeight: AppFontsWeight.semiBold,
                                       ),
                                       Etiqueta(
@@ -123,10 +123,11 @@ class CarrinhoPage extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      AppText(text: 'Criar venda'),
+                      AppText(text: 'Criar venda', fontSize: 18,),
                       AppText(
                         text: 'R\$ 10,00',
                         fontWeight: AppFontsWeight.bold,
+                        fontSize: 18,
                       ),
                     ],
                   ),

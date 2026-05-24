@@ -33,6 +33,7 @@ class AppText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final fonteResponsiva = FonteResponsiva(tamanhoFonte: fontSize);
     return Container(
       color: Colors.transparent,
       child: EasyRichText(
@@ -43,7 +44,7 @@ class AppText extends StatelessWidget {
         defaultStyle: textStyle(
           color: color,
           height: height,
-          fontSize: fontSize,
+          fontSize: fonteResponsiva.get(context),
           fontWeight: fontWeight,
           decoration: decoration,
           decorationColor: decorationColor,
@@ -69,5 +70,27 @@ class AppText extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class FonteResponsiva {
+  final double tamanhoFonte;
+
+  const FonteResponsiva({
+   required this.tamanhoFonte,
+  });
+
+  double get(BuildContext context) {
+    final largura = MediaQuery.of(context).size.width;
+
+    if (largura >= 1200) {// Desktop
+      return (tamanhoFonte * 1.5);
+    }
+
+    if (largura >= 768) { // tablet
+      return (tamanhoFonte * 1.2);
+    }
+
+    return (tamanhoFonte * 0.9);
   }
 }

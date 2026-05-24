@@ -97,14 +97,18 @@ class ProdutosPage extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
+                          
                           children: [
                             AppText(text: 'Trufa de chocolate belga', color: AppColors.darkMocha240,fontSize: 18,fontWeight: AppFontsWeight.semiBold,),
-                            Etiqueta(texto: 'Trufas'),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 2, bottom: 5),
+                              child: Etiqueta(texto: 'Trufas'),
+                            ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                AppText(text: 'Estoque: 21', color: AppColors.darkMocha240,),
-                                AppText(text: 'R\$ 2,50', color: AppColors.darkMocha240)
+                                AppText(text: 'Estoque: 21',fontSize: 18, color: AppColors.darkMocha240,),
+                                AppText(text: 'R\$ 2,50', fontSize: 18, color: AppColors.darkMocha240)
                               ],
                             ),
                           ],

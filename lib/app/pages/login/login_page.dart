@@ -78,9 +78,9 @@ class LoginPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(bottom: 10),
                 child: AppText(
-                  text: '© 2025 TrufApp. Todos os direitos reservados.',
+                  text: '© 2026 TrufApp. Todos os direitos reservados.',
                   color: AppColors.darkMocha240,
-                  fontSize: 11,
+                  fontSize: 16,
                 ),
               ),
             ],

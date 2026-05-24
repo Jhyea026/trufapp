@@ -21,7 +21,7 @@ class Appcard extends StatelessWidget {
         borderRadius: BorderRadius.circular(10)
       ),
       width: 500,
-      height: altura ?? 98,
+      // height: altura ?? 98,
       child: filho,
     );
   }

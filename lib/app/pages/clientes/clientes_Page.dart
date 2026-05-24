@@ -89,27 +89,29 @@ class ClientesPage extends StatelessWidget {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
+                        spacing: 10,
                         children: [
-                          AppText(text: 'Nome', color: AppColors.darkMocha240,fontSize: 12, fontWeight: AppFontsWeight.semiBold,),
-                          AppText(text: 'Endereço', color: AppColors.darkMocha240,fontSize: 12, fontWeight: AppFontsWeight.semiBold),
-                          AppText(text: '(99) 9 9999-9999', color: AppColors.darkMocha240,fontSize: 12, fontWeight: AppFontsWeight.semiBold),
+                          AppText(text: 'Nome', color: AppColors.darkMocha240,fontSize: 18,fontWeight: AppFontsWeight.semiBold,),
+                          AppText(text: 'Rua do Bobo, Nº 0', color: AppColors.darkMocha180,fontSize: 16, fontWeight: AppFontsWeight.semiBold),
+                          AppText(text: '(99) 9 9999-9999', color: AppColors.darkMocha180,fontSize: 16, fontWeight: AppFontsWeight.semiBold),
                         ], 
                       ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        spacing: 33,
                         children: [
                           Row(
                             children: [
                               Icon(LucideIcons.circle_star, size: 20,),
                               SizedBox(width: 12,),
-                              AppText(text: '2', color: AppColors.darkMocha240,fontSize: 12, fontWeight: AppFontsWeight.semiBold),
+                              AppText(text: '2', color: AppColors.darkMocha240,fontSize: 18, fontWeight: AppFontsWeight.semiBold),
                             ],
                           ),
                           Row(
                             children: [
                               Icon(LucideIcons.gift, size: 20,),
                               SizedBox(width: 12,),
-                              AppText(text: '2', color: AppColors.darkMocha240,fontSize: 12, fontWeight: AppFontsWeight.semiBold),
+                              AppText(text: '2', color: AppColors.darkMocha240,fontSize: 18, fontWeight: AppFontsWeight.semiBold),
                             ],
                           ),
                         ],

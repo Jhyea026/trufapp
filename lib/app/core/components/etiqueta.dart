@@ -18,7 +18,7 @@ class Etiqueta extends StatelessWidget {
       child: AppText(
         text: texto,
         color: corBorda ?? AppColors.darkMocha240,
-        fontSize: 9,
+        fontSize: 11,
         
       ),
     );

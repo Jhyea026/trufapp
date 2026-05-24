@@ -144,7 +144,7 @@ class VendasPages extends StatelessWidget {
                                           DateTime.now(),
                                         ),
                                     // color: AppColors.dark
-                                    color: AppColors.darkMocha240,
+                                    color: AppColors.darkMocha180,
                                     fontSize: 12,
                                     fontWeight: AppFontsWeight.semiBold,
                                   ),
