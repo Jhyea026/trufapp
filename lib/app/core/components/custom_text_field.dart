@@ -8,6 +8,7 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final VoidCallback? onChanged;
   final double? width, height;
+  final BorderRadius? borderRadius;
   final Widget? prefix;
   final Color? borderColor, colorHint;
   final bool obscure; 
@@ -21,7 +22,7 @@ class CustomTextField extends StatelessWidget {
     this.height,
     this.prefix,
     this.borderColor, 
-    this.obscure = false, this.colorHint,
+    this.obscure = false, this.colorHint, this.borderRadius,
   });
 
   @override
@@ -51,12 +52,12 @@ class CustomTextField extends StatelessWidget {
           ), // altera o estilo do texto placheorder
           // altera a cor das bordas quando não tá focado
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: borderRadius ?? BorderRadius.circular(10),
             borderSide: BorderSide(color: borderColor ?? AppColors.lightMocha10),
           ),
           focusedBorder: OutlineInputBorder(
             // Altera a cor das bordas quando tá focado
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: borderRadius ?? BorderRadius.circular(10),
             borderSide: BorderSide(color: borderColor ?? AppColors.lightMocha10),
           ),
           // focusColor: Colors.red,

@@ -48,6 +48,7 @@ class VendasPages extends StatelessWidget {
                       controller: TextEditingController(),
                       borderColor: AppColors.darkMocha240,
                       colorHint: AppColors.darkMocha240,
+                      borderRadius: BorderRadius.circular(20),
                     ),
                   ),
                   Padding(
