@@ -6,6 +6,7 @@ import 'package:trufapp/app/core/models/itens_menu_modelo.dart';
 import 'package:trufapp/app/core/routes/pages_routes.dart';
 import 'package:trufapp/app/core/theme/app_colors.dart';
 import 'package:trufapp/app/pages/carrinho/carrinho_page.dart';
+import 'package:trufapp/app/pages/clientes/clientes_Page.dart';
 import 'package:trufapp/app/pages/dashboard/dashboard_page.dart';
 import 'package:trufapp/app/pages/configuracoes/configuracoes_pages.dart';
 import 'package:trufapp/app/pages/vendas/vendas_pages.dart';
@@ -40,9 +41,7 @@ class HomeController extends GetxController {
     ItensMenuModelo(
       chave: "clientes",
       icone: LucideIcons.users,
-      tela: const Center(
-        child: AppText(text: "Clientes", color: AppColors.darkMocha240),
-      ),
+      tela: const ClientesPage(),
     ),
     // ItensMenuModelo(
     //   chave: "relatorios",

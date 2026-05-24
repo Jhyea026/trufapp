@@ -1,11 +1,11 @@
 {
     "name": "trufapp",
     "short_name": "trufapp",
-    "start_url": ".",
+    "start_url": "/",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Gerenciador de Vendas",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
@@ -16,7 +16,7 @@
         },
         {
             "src": "icons/Icon-512.png",
-            "sizes": "512x512",
+            "sizes": "1024x1024",
             "type": "image/png"
         },
         {

@@ -27,6 +27,7 @@ class DashboardPage extends StatelessWidget {
             SizedBox(height: 8),
             MasonryGridView(
               shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
               gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
               ),

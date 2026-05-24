@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:get/get.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
@@ -36,6 +37,9 @@ class HomePage extends StatelessWidget {
           ? null
           : AppBar(
               toolbarHeight: 70,
+              systemOverlayStyle: SystemUiOverlayStyle(
+                statusBarColor: AppColors.darkMocha410,
+              ),
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.vertical(
                   bottom: Radius.circular(10),

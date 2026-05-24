@@ -26,6 +26,7 @@ class LoginPage extends StatelessWidget {
               Column(
                 children: [
                   Image.asset('assets/images/TrufApp_logo.png'),
+                  
                   Container(
                     constraints: BoxConstraints(maxWidth: 400),
                     decoration: BoxDecoration(
