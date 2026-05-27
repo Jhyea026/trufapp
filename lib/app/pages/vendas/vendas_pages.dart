@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:get/get.dart';
+import 'package:trufapp/app/core/components/_dialogs/bottomsheets/bts_finaliza_venda.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
 import 'package:trufapp/app/core/components/custom_button.dart';
 import 'package:trufapp/app/core/components/custom_text_field.dart';
 import 'package:trufapp/app/core/components/etiqueta.dart';
 import 'package:trufapp/app/core/theme/app_colors.dart';
 import 'package:trufapp/app/core/theme/app_fonts_weight.dart';
-import 'package:trufapp/app/pages/dialogs/bottom_sheet_padrao.dart';
 import 'package:trufapp/app/pages/dialogs/modal_padrao.dart';
 import 'package:trufapp/app/pages/vendas/vendas_controller.dart';
 import 'package:trufapp/app/utils/data_time_custom.dart';
@@ -22,7 +22,7 @@ class VendasPages extends StatelessWidget {
       // initState: (_) {},
       builder: (vendasController) {
         return Padding(
-          padding:  EdgeInsets.only(
+          padding: EdgeInsets.only(
             top: 12,
             right: 12,
             left: 12,
@@ -60,9 +60,7 @@ class VendasPages extends StatelessWidget {
                         if (Get.width > 600) {
                           Get.dialog(ModalPadrao(filho: AppText(text: "text")));
                         } else {
-                          Get.bottomSheet(
-                            BottomSheetPadrao(filho: AppText(text: "text")),
-                          );
+                          Get.bottomSheet(BtsFinalizavenda());
                         }
                       },
                       largura: 32,
@@ -72,7 +70,7 @@ class VendasPages extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 12,),
+              SizedBox(height: 12),
               Expanded(
                 child: SingleChildScrollView(
                   // padding: EdgeInsets.all(12),

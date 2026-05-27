@@ -9,7 +9,7 @@ class CustomButton extends StatefulWidget {
   final String? texto;
   final double? largura, altura;
   final bool carregando, mostraBorda, mostraSombra;
-  final Color? corFundo, corTexto, corHover;
+  final Color? corFundo, corTexto, corHover, corBorda;
   final VoidCallback? acao;
 
   const CustomButton({
@@ -23,7 +23,9 @@ class CustomButton extends StatefulWidget {
     this.mostraSombra = false,
     this.corFundo,
     this.acao,
-    this.corTexto, this.corHover,
+    this.corTexto,
+    this.corHover,
+    this.corBorda,
   });
 
   @override
@@ -45,16 +47,14 @@ class _CustomButtonState extends State<CustomButton> {
         width: widget.largura ?? double.infinity,
         height: widget.altura ?? 40,
         decoration: BoxDecoration(
-          color: hover 
-          ? widget.corHover??AppColors.darkMocha130
-          : widget.corFundo,
+          color: hover
+              ? widget.corHover ?? AppColors.darkMocha130
+              : widget.corFundo,
           border: widget.mostraBorda
-              ? Border.all(color: AppColors.darkMocha420)
+              ? Border.all(color: widget.corBorda ?? AppColors.darkMocha420)
               : null,
           borderRadius: BorderRadius.all(Radius.circular(10)),
-          boxShadow: widget.mostraSombra?[
-            customShadow()
-          ]: []
+          boxShadow: widget.mostraSombra ? [customShadow()] : [],
         ),
         child: widget.carregando
             ? Center(
