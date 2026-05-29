@@ -1,61 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:trufapp/app/core/theme/app_colors.dart';
+import 'package:trufapp/app/core/components/_dialogs/_defaults/cards/card_bottom_sheet.dart';
 
 class BottomSheetPadrao extends StatelessWidget {
   final Widget filho;
+  final Widget bottomSheet;
 
-  const BottomSheetPadrao({super.key, required this.filho});
+  const BottomSheetPadrao({
+    super.key,
+    required this.filho,
+    required this.bottomSheet,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        GestureDetector(
-          onTap: () => Get.back(),
-          child: Container(
-            width: Get.width,
-            height: Get.height,
-            color: Colors.transparent,
-          ),
-        ),
-
-        /// Fixa no rodapé
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Container(
-            width: Get.width,
-            constraints: BoxConstraints(maxHeight: Get.height * 0.9),
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: AppColors.lightMocha10,
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(20),
-                topRight: Radius.circular(20),
-              ),
-            ),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Container(
-                    width: Get.width * 0.3,
-                    height: 3,
-                    decoration: BoxDecoration(
-                      color: AppColors.darkMocha140,
-                      borderRadius: BorderRadius.circular(100),
-                    ),
-                  ),
-
-                  const SizedBox(height: 12),
-
-                  filho,
-                ],
-              ),
-            ),
-          ),
-        ),
-      ],
+    return InkWell(
+      highlightColor: Colors.transparent,
+      splashColor: Colors.transparent,
+      focusColor: Colors.transparent,
+      hoverColor: Colors.transparent,
+      borderRadius: BorderRadius.circular(10),
+      onTap: () {
+        Get.bottomSheet(
+          CardBottomSheet(filho: bottomSheet),
+          backgroundColor: Colors.transparent,
+          isScrollControlled: true,
+        );
+      },
+      child: Padding(padding: const EdgeInsets.all(4), child: filho),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:get/get.dart';
+import 'package:trufapp/app/core/components/_dialogs/_defaults/bottom_sheet_padrao.dart';
 import 'package:trufapp/app/core/components/_dialogs/_defaults/modal_padrao.dart';
 import 'package:trufapp/app/core/components/_dialogs/bottomsheets/bts_finaliza_venda.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
@@ -53,21 +54,41 @@ class VendasPages extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
-                    child: CustomButton(
-                      acao: () {
-                        if (Get.width > 600) {
-                          Get.dialog(ModalPadrao(filho: AppText(text: "text")));
-                        } else {
-                          Get.bottomSheet(BtsFinalizavenda());
-                        }
-                      },
-                      largura: 32,
-                      filho: Icon(LucideIcons.funnel, size: 32),
-                      mostraBorda: false,
+
+                  if (Get.width > 600)
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: ModalPadrao(
+                        // alturaModal: 200,
+                        // larguraModal: 200,
+                        modal: BtsFinalizavenda(),
+                        filho: Icon(LucideIcons.funnel, size: 32),podeFecharAoTocarFora: false,
+                        // : BtsFinalizavenda(),
+                      ),
+                    )
+                  else
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: BottomSheetPadrao(
+                        filho: Icon(LucideIcons.funnel, size: 32),
+                        bottomSheet: BtsFinalizavenda(),
+                      ),
                     ),
-                  ),
+                  // Padding(
+                  //   padding: const EdgeInsets.only(left: 8.0),
+                  //   child: CustomButton(
+                  //     acao: () {
+                  //       if (Get.width > 600) {
+                  //         Get.dialog(ModalPadrao(filho: AppText(text: "text")));
+                  //       } else {
+                  //         Get.bottomSheet(BtsFinalizavenda());
+                  //       }
+                  //     },
+                  //     largura: 32,
+                  //     filho: Icon(LucideIcons.funnel, size: 32),
+                  //     mostraBorda: false,
+                  //   ),
+                  // ),
                 ],
               ),
               SizedBox(height: 12),

@@ -32,12 +32,12 @@ class ProdutosPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   AppText(
-                            text: 'Produtos',
-                            color: AppColors.darkMocha240,
-                            fontSize: 28,
-                            fontWeight: AppFontsWeight.bold,
-                          ),
-                          Addbuttom(acao: () {}),
+                    text: 'Produtos',
+                    color: AppColors.darkMocha240,
+                    fontSize: 28,
+                    fontWeight: AppFontsWeight.bold,
+                  ),
+                  Addbuttom(acao: () {}),
                 ],
               ),
               Row(
@@ -58,11 +58,11 @@ class ProdutosPage extends StatelessWidget {
                     child: CustomButton(
                       acao: () {
                         if (Get.width > 600) {
-                          Get.dialog(ModalPadrao(filho: AppText(text: "text")));
+                          // Get.dialog(ModalPadrao(filho: AppText(text: "text")));
                         } else {
-                          Get.bottomSheet(
-                            BottomSheetPadrao(filho: AppText(text: "text")),
-                          );
+                          // Get.bottomSheet(
+                          //   // BottomSheetPadrao(filho: AppText(text: "text")),
+                          // );
                         }
                       },
                       largura: 32,
@@ -74,52 +74,71 @@ class ProdutosPage extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 12,),
+          SizedBox(height: 12),
           Expanded(
             child: SingleChildScrollView(
               child: Column(
                 children: [
                   ...List.generate(
                     10,
-                    (index) => Appcard(filho: 
-                  Row(
-                    children: [
-                      Container(
-                        width: 60,
-                        height: 60,
-                        decoration: BoxDecoration(
-                          color: AppColors.darkMocha450,
-                          borderRadius: BorderRadius.circular(10)
-                        ),
-                      ),
-                      SizedBox(width: 12,),
-                      Expanded(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          
-                          children: [
-                            AppText(text: 'Trufa de chocolate belga', color: AppColors.darkMocha240,fontSize: 18,fontWeight: AppFontsWeight.semiBold,),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 2, bottom: 5),
-                              child: Etiqueta(texto: 'Trufas'),
+                    (index) => Appcard(
+                      filho: Row(
+                        children: [
+                          Container(
+                            width: 60,
+                            height: 60,
+                            decoration: BoxDecoration(
+                              color: AppColors.darkMocha450,
+                              borderRadius: BorderRadius.circular(10),
                             ),
-                            Row(
+                          ),
+                          SizedBox(width: 12),
+                          Expanded(
+                            child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+
                               children: [
-                                AppText(text: 'Estoque: 21',fontSize: 18, color: AppColors.darkMocha240,),
-                                AppText(text: 'R\$ 2,50', fontSize: 18, color: AppColors.darkMocha240)
+                                AppText(
+                                  text: 'Trufa de chocolate belga',
+                                  color: AppColors.darkMocha240,
+                                  fontSize: 18,
+                                  fontWeight: AppFontsWeight.semiBold,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                    top: 2,
+                                    bottom: 5,
+                                  ),
+                                  child: Etiqueta(texto: 'Trufas'),
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    AppText(
+                                      text: 'Estoque: 21',
+                                      fontSize: 18,
+                                      color: AppColors.darkMocha240,
+                                    ),
+                                    AppText(
+                                      text: 'R\$ 2,50',
+                                      fontSize: 18,
+                                      color: AppColors.darkMocha240,
+                                    ),
+                                  ],
+                                ),
                               ],
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ],
-                  )),
-                  )
+                    ),
+                  ),
                 ],
               ),
-            ),)
+            ),
+          ),
         ],
       ),
     );
