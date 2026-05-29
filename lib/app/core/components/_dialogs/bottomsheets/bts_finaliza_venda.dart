@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
+import 'package:trufapp/app/core/components/_dialogs/_defaults/bottom_sheet_padrao.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
 import 'package:trufapp/app/core/components/custom_button.dart';
 import 'package:trufapp/app/core/components/custom_divider.dart';
 import 'package:trufapp/app/core/theme/app_colors.dart';
 import 'package:trufapp/app/core/theme/app_fonts_weight.dart';
-import 'package:trufapp/app/pages/dialogs/bottom_sheet_padrao.dart';
 
 class BtsFinalizavenda extends StatelessWidget {
   const BtsFinalizavenda({super.key});
