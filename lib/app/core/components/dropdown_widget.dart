@@ -63,7 +63,7 @@ class _DropdownWidgetState extends State<DropdownWidget> {
   Widget build(BuildContext context) {
     return SizedBox(
       child: Column(
-        spacing: 12,
+        spacing: 8,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (widget.titulo != null)
@@ -73,7 +73,7 @@ class _DropdownWidgetState extends State<DropdownWidget> {
                 text: widget.titulo!,
                 color: AppColors.darkMocha240,
                 fontSize: 18,
-                fontWeight: AppFontsWeight.bold,
+                fontWeight: AppFontsWeight.semiBold,
               ),
             ),
           DropdownMenu(
@@ -98,8 +98,7 @@ class _DropdownWidgetState extends State<DropdownWidget> {
               size: 24,
               color: AppColors.darkMocha420,
             ),
-
-            expandedInsets: EdgeInsets.all(12),
+            expandedInsets: EdgeInsets.all(0),
             inputDecorationTheme: InputDecorationTheme(
               hintStyle: textStyle(color: AppColors.darkMocha150, fontSize: 18),
               constraints: BoxConstraints(maxWidth: double.infinity),

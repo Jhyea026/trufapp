@@ -76,18 +76,18 @@ class AppText extends StatelessWidget {
 class FonteResponsiva {
   final double tamanhoFonte;
 
-  const FonteResponsiva({
-   required this.tamanhoFonte,
-  });
+  const FonteResponsiva({required this.tamanhoFonte});
 
   double get(BuildContext context) {
     final largura = MediaQuery.of(context).size.width;
 
-    if (largura >= 1200) {// Desktop
+    if (largura >= 1200) {
+      // Desktop
       return (tamanhoFonte * 1.5);
     }
 
-    if (largura >= 768) { // tablet
+    if (largura >= 768) {
+      // tablet
       return (tamanhoFonte * 1.2);
     }
 

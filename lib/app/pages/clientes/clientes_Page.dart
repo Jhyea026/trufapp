@@ -2,8 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:get/get.dart';
-import 'package:trufapp/app/core/components/_dialogs/_defaults/bottom_sheet_padrao.dart';
-import 'package:trufapp/app/core/components/_dialogs/_defaults/modal_padrao.dart';
 import 'package:trufapp/app/core/components/addButtom.dart';
 import 'package:trufapp/app/core/components/appCard.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
