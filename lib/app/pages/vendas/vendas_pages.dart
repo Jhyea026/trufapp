@@ -5,7 +5,6 @@ import 'package:trufapp/app/core/components/_dialogs/_defaults/bottom_sheet_padr
 import 'package:trufapp/app/core/components/_dialogs/_defaults/modal_padrao.dart';
 import 'package:trufapp/app/core/components/_dialogs/bottomsheets/bts_finaliza_venda.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
-import 'package:trufapp/app/core/components/custom_button.dart';
 import 'package:trufapp/app/core/components/custom_text_field.dart';
 import 'package:trufapp/app/core/components/etiqueta.dart';
 import 'package:trufapp/app/core/theme/app_colors.dart';
@@ -62,7 +61,8 @@ class VendasPages extends StatelessWidget {
                         // alturaModal: 200,
                         // larguraModal: 200,
                         modal: BtsFinalizavenda(),
-                        filho: Icon(LucideIcons.funnel, size: 32),podeFecharAoTocarFora: false,
+                        filho: Icon(LucideIcons.funnel, size: 32),
+                        podeFecharAoTocarFora: false,
                         // : BtsFinalizavenda(),
                       ),
                     )

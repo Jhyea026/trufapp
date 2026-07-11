@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:get/get.dart';
-import 'package:trufapp/app/core/components/_dialogs/_defaults/bottom_sheet_padrao.dart';
-import 'package:trufapp/app/core/components/_dialogs/_defaults/modal_padrao.dart';
+import 'package:trufapp/app/core/components/_dialogs/_defaults/cards/card_bottom_sheet.dart';
+import 'package:trufapp/app/core/components/_dialogs/_defaults/cards/card_modal.dart';
+import 'package:trufapp/app/core/components/_dialogs/bottomsheets/bts_novo_produto.dart';
 import 'package:trufapp/app/core/components/addButtom.dart';
 import 'package:trufapp/app/core/components/appCard.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
@@ -37,7 +38,18 @@ class ProdutosPage extends StatelessWidget {
                     fontSize: 28,
                     fontWeight: AppFontsWeight.bold,
                   ),
-                  Addbuttom(acao: () {}),
+                  Addbuttom(
+                    acao: () {
+                      if (Get.width > 600) {
+                        Get.dialog(CardModal(filho: BtsNovoProduto()));
+                      } else {
+                        Get.bottomSheet(
+                          CardBottomSheet(filho: BtsNovoProduto()),
+                          isScrollControlled: true,
+                        );
+                      }
+                    },
+                  ),
                 ],
               ),
               Row(
@@ -58,10 +70,19 @@ class ProdutosPage extends StatelessWidget {
                     child: CustomButton(
                       acao: () {
                         if (Get.width > 600) {
-                          // Get.dialog(ModalPadrao(filho: AppText(text: "text")));
+                          // Get.dialog(
+                          //   ModalPadrao(
+                          //     modal: BtsNovoProduto(),
+                          //     filho: BtsNovoProduto(),
+                          //     podeFecharAoTocarFora: false,
+                          //   ),
+                          // );
                         } else {
                           // Get.bottomSheet(
-                          //   // BottomSheetPadrao(filho: AppText(text: "text")),
+                          //   BottomSheetPadrao(
+                          //     filho: BtsNovoProduto(),
+                          //     bottomSheet: BtsNovoProduto(),
+                          //   ),
                           // );
                         }
                       },

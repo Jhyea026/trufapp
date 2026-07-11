@@ -4,10 +4,7 @@ import 'package:trufapp/app/core/theme/app_colors.dart';
 class CardBottomSheet extends StatelessWidget {
   final Widget filho;
 
-  const CardBottomSheet({
-    super.key,
-    required this.filho,
-  });
+  const CardBottomSheet({super.key, required this.filho});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +12,7 @@ class CardBottomSheet extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.darkMocha130,
+        color: AppColors.lightMocha10,
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(20),
           topRight: Radius.circular(20),
@@ -24,9 +21,7 @@ class CardBottomSheet extends StatelessWidget {
       child: SafeArea(
         top: false,
         child: ConstrainedBox(
-          constraints: BoxConstraints(
-            maxHeight: height * 0.99,
-          ),
+          constraints: BoxConstraints(maxHeight: height * 0.99),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [

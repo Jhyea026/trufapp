@@ -18,7 +18,7 @@ class CardModal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppColors.lightMocha10,
       insetPadding: EdgeInsets.zero,
       child: Container(
         height: altura ?? Get.height * 0.8,
