@@ -2,6 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:get/get.dart';
+import 'package:trufapp/app/core/components/_dialogs/_defaults/cards/card_bottom_sheet.dart';
+import 'package:trufapp/app/core/components/_dialogs/_defaults/cards/card_modal.dart';
+import 'package:trufapp/app/core/components/_dialogs/bottomsheets/bts_novo_cliente.dart';
 import 'package:trufapp/app/core/components/addButtom.dart';
 import 'package:trufapp/app/core/components/appCard.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
@@ -35,7 +38,18 @@ class ClientesPage extends StatelessWidget {
                     fontSize: 28,
                     fontWeight: AppFontsWeight.bold,
                   ),
-                  Addbuttom(acao: () {}),
+                  Addbuttom(
+                    acao: () {
+                      if (Get.width > 600) {
+                        Get.dialog(CardModal(filho: BtsNovoCliente()));
+                      } else {
+                        Get.bottomSheet(
+                          CardBottomSheet(filho: BtsNovoCliente()),
+                          isScrollControlled: true,
+                        );
+                      }
+                    },
+                  ),
                 ],
               ),
               Row(
@@ -44,10 +58,11 @@ class ClientesPage extends StatelessWidget {
                     child: CustomTextField(
                       hintText: 'Buscar',
                       controller: TextEditingController(),
-                      textColor: AppColors.darkMocha410,
                       borderColor: AppColors.darkMocha180,
                       focusBorderColor: AppColors.darkMocha410,
                       colorHint: AppColors.darkMocha150,
+                      cursorColor: AppColors.darkMocha410,
+                      textColor: AppColors.darkMocha420,
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),

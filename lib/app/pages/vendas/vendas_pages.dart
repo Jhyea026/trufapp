@@ -46,10 +46,11 @@ class VendasPages extends StatelessWidget {
                     child: CustomTextField(
                       hintText: 'Buscar',
                       controller: TextEditingController(),
-                      textColor: AppColors.darkMocha410,
                       borderColor: AppColors.darkMocha180,
                       focusBorderColor: AppColors.darkMocha410,
                       colorHint: AppColors.darkMocha150,
+                      cursorColor: AppColors.darkMocha410,
+                      textColor: AppColors.darkMocha420,
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
