@@ -4,6 +4,7 @@ import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:get/get.dart';
 import 'package:trufapp/app/core/components/_dialogs/_defaults/cards/card_bottom_sheet.dart';
 import 'package:trufapp/app/core/components/_dialogs/_defaults/cards/card_modal.dart';
+import 'package:trufapp/app/core/components/_dialogs/bottomsheets/bts_informacoes_cliente.dart';
 import 'package:trufapp/app/core/components/_dialogs/bottomsheets/bts_novo_cliente.dart';
 import 'package:trufapp/app/core/components/addButtom.dart';
 import 'package:trufapp/app/core/components/appCard.dart';
@@ -95,6 +96,16 @@ class ClientesPage extends StatelessWidget {
                   ...List.generate(
                     10,
                     (index) => Appcard(
+                      onTap: () {
+                        if (Get.width > 600) {
+                          Get.dialog(CardModal(filho: BtsNovoCliente()));
+                        } else {
+                          Get.bottomSheet(
+                            CardBottomSheet(filho: BtsInformacoesCliente()),
+                            isScrollControlled: true,
+                          );
+                        }
+                      },
                       filho: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
 

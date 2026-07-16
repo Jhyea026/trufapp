@@ -62,6 +62,7 @@ class ProdutosPage extends StatelessWidget {
                       borderColor: AppColors.darkMocha180,
                       focusBorderColor: AppColors.darkMocha410,
                       colorHint: AppColors.darkMocha150,
+                      cursorColor: AppColors.darkMocha410,
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
@@ -103,6 +104,18 @@ class ProdutosPage extends StatelessWidget {
                   ...List.generate(
                     10,
                     (index) => Appcard(
+                      onTap: () {
+                        if (Get.width > 600) {
+                          Get.dialog(CardModal(filho: BtsNovoProduto()));
+                        } else {
+                          Get.bottomSheet(
+                            CardBottomSheet(
+                              filho: BtsNovoProduto(editaProduto: true),
+                            ),
+                            isScrollControlled: true,
+                          );
+                        }
+                      },
                       filho: Row(
                         children: [
                           Container(

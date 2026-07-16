@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:trufapp/app/core/components/_dialogs/_defaults/cards/card_bottom_sheet.dart';
+import 'package:trufapp/app/core/components/_dialogs/_defaults/cards/card_modal.dart';
+import 'package:trufapp/app/core/components/_dialogs/bottomsheets/bts_selecionar_cliente.dart';
 import 'package:trufapp/app/core/components/addButtom.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
 import 'package:trufapp/app/core/components/contador_quantidade.dart';
@@ -113,7 +116,16 @@ class CarrinhoPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(bottom: 12),
               child: CustomButton(
-                acao: () {},
+                acao: () {
+                  if (Get.width > 600) {
+                    Get.dialog(CardModal(filho: BtsSelecionarCliente()));
+                  } else {
+                    Get.bottomSheet(
+                      CardBottomSheet(filho: BtsSelecionarCliente()),
+                      isScrollControlled: true,
+                    );
+                  }
+                },
                 corHover: AppColors.darkMocha410,
                 corFundo: AppColors.darkMocha420,
                 mostraBorda: false,
@@ -123,7 +135,7 @@ class CarrinhoPage extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      AppText(text: 'Criar venda', fontSize: 18,),
+                      AppText(text: 'Criar venda', fontSize: 18),
                       AppText(
                         text: 'R\$ 10,00',
                         fontWeight: AppFontsWeight.bold,

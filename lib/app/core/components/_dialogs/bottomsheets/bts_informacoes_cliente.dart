@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:trufapp/app/core/components/_dialogs/_defaults/cards/card_bottom_sheet.dart';
+import 'package:trufapp/app/core/components/_dialogs/_defaults/cards/card_modal.dart';
+import 'package:trufapp/app/core/components/_dialogs/bottomsheets/bts_novo_cliente.dart';
 import 'package:trufapp/app/core/components/appCard.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
 import 'package:trufapp/app/core/components/custom_button.dart';
@@ -131,6 +136,21 @@ class BtsInformacoesCliente extends StatelessWidget {
                     largura: 193,
                     corFundo: AppColors.darkMocha420,
                     corTexto: AppColors.lightMocha10,
+                    corHover: AppColors.darkMocha430,
+                    acao: () {
+                      if (Get.width > 600) {
+                        Get.dialog(
+                          CardModal(filho: BtsNovoCliente(editarCliente: true)),
+                        );
+                      } else {
+                        Get.bottomSheet(
+                          CardBottomSheet(
+                            filho: BtsNovoCliente(editarCliente: true),
+                          ),
+                          isScrollControlled: true,
+                        );
+                      }
+                    },
                   ),
                   CustomButton(
                     texto: 'Retirar brinde',

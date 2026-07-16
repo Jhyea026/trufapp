@@ -7,7 +7,8 @@ import 'package:trufapp/app/core/theme/app_colors.dart';
 import 'package:trufapp/app/core/theme/app_fonts_weight.dart';
 
 class BtsNovoProduto extends StatelessWidget {
-  const BtsNovoProduto({super.key});
+  final bool? editaProduto;
+  const BtsNovoProduto({super.key, this.editaProduto = false});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class BtsNovoProduto extends StatelessWidget {
       child: Column(
         children: [
           AppText(
-            text: 'Novo produto',
+            text: editaProduto == false ? 'Novo produto' : 'Editar produto',
             color: AppColors.darkMocha240,
             fontSize: 28,
             fontWeight: AppFontsWeight.bold,
