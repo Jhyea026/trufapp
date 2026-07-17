@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:trufapp/app/core/components/_dialogs/_defaults/cards/card_bottom_sheet.dart';
+import 'package:trufapp/app/core/components/_dialogs/_defaults/cards/card_modal.dart';
+import 'package:trufapp/app/core/components/_dialogs/bottomsheets/bts_finaliza_venda.dart';
 import 'package:trufapp/app/core/components/appCard.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
 import 'package:trufapp/app/core/components/custom_button.dart';
@@ -250,8 +255,7 @@ class BtsInformacoesVenda extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     AppText(
-                      text: 'Finalizar venda',
-
+                      text: 'Pagar',
                       fontSize: 18,
                       fontWeight: AppFontsWeight.semiBold,
                     ),
@@ -264,6 +268,16 @@ class BtsInformacoesVenda extends StatelessWidget {
                   ],
                 ),
               ),
+              acao: () {
+                if (Get.width > 600) {
+                  Get.dialog(CardModal(filho: BtsFinalizavenda()));
+                } else {
+                  Get.bottomSheet(
+                    CardBottomSheet(filho: BtsFinalizavenda()),
+                    isScrollControlled: true,
+                  );
+                }
+              },
             ),
           ],
         ),

@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:get/get.dart';
 import 'package:trufapp/app/core/components/_dialogs/_defaults/bottom_sheet_padrao.dart';
+import 'package:trufapp/app/core/components/_dialogs/_defaults/cards/card_bottom_sheet.dart';
+import 'package:trufapp/app/core/components/_dialogs/_defaults/cards/card_modal.dart';
 import 'package:trufapp/app/core/components/_dialogs/_defaults/modal_padrao.dart';
 import 'package:trufapp/app/core/components/_dialogs/bottomsheets/bts_finaliza_venda.dart';
+import 'package:trufapp/app/core/components/_dialogs/bottomsheets/bts_informacoes_venda.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
 import 'package:trufapp/app/core/components/custom_text_field.dart';
 import 'package:trufapp/app/core/components/etiqueta.dart';
@@ -105,72 +108,86 @@ class VendasPages extends StatelessWidget {
 
                         Color corPagamento = vendasController
                             .getcolorPagamentos(pagamento);
-                        return Container(
-                          margin: EdgeInsets.only(bottom: 12),
-                          padding: EdgeInsets.all(12),
-                          decoration: BoxDecoration(
-                            color: AppColors.lightMocha30,
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: AppColors.darkMocha450),
-                          ),
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Expanded(
-                                    child: AppText(
-                                      text: "Cliente ${index + 1}",
+                        return InkWell(
+                          onTap: () {
+                            if (Get.width > 600) {
+                              Get.dialog(
+                                CardModal(filho: BtsInformacoesVenda()),
+                              );
+                            } else {
+                              Get.bottomSheet(
+                                CardBottomSheet(filho: BtsInformacoesVenda()),
+                                isScrollControlled: true,
+                              );
+                            }
+                          },
+                          child: Container(
+                            margin: EdgeInsets.only(bottom: 12),
+                            padding: EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              color: AppColors.lightMocha30,
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: AppColors.darkMocha450),
+                            ),
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Expanded(
+                                      child: AppText(
+                                        text: "Cliente ${index + 1}",
+                                        color: AppColors.darkMocha240,
+                                        fontSize: 18,
+                                        fontWeight: AppFontsWeight.semiBold,
+                                      ),
+                                    ),
+                                    Etiqueta(
+                                      corBorda: corPagamento,
+                                      texto: pagamento,
+                                    ),
+                                    const SizedBox(height: 5),
+                                  ],
+                                ),
+                                SizedBox(height: 12),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    AppText(
+                                      text: "Total: R\$ ${index + 1},00",
                                       color: AppColors.darkMocha240,
+                                      fontWeight: AppFontsWeight.semiBold,
                                       fontSize: 18,
+                                    ),
+                                    AppText(
+                                      text: "Quantidade ${index + 1}",
+                                      color: AppColors.darkMocha240,
+                                      fontWeight: AppFontsWeight.semiBold,
+                                      fontSize: 18,
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 12),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    AppText(
+                                      text:
+                                          DateUtilsCustom.formatDateTimeDDMMYYYYHHMMa(
+                                            // DateTime(2822, 7, 16, 02, 28),
+                                            DateTime.now(),
+                                          ),
+                                      // color: AppColors.dark
+                                      color: AppColors.darkMocha180,
+                                      fontSize: 12,
                                       fontWeight: AppFontsWeight.semiBold,
                                     ),
-                                  ),
-                                  Etiqueta(
-                                    corBorda: corPagamento,
-                                    texto: pagamento,
-                                  ),
-                                  const SizedBox(height: 5),
-                                ],
-                              ),
-                              SizedBox(height: 12),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  AppText(
-                                    text: "Total: R\$ ${index + 1},00",
-                                    color: AppColors.darkMocha240,
-                                    fontWeight: AppFontsWeight.semiBold,
-                                    fontSize: 18,
-                                  ),
-                                  AppText(
-                                    text: "Quantidade ${index + 1}",
-                                    color: AppColors.darkMocha240,
-                                    fontWeight: AppFontsWeight.semiBold,
-                                    fontSize: 18,
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: 12),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  AppText(
-                                    text:
-                                        DateUtilsCustom.formatDateTimeDDMMYYYYHHMMa(
-                                          // DateTime(2822, 7, 16, 02, 28),
-                                          DateTime.now(),
-                                        ),
-                                    // color: AppColors.dark
-                                    color: AppColors.darkMocha180,
-                                    fontSize: 12,
-                                    fontWeight: AppFontsWeight.semiBold,
-                                  ),
-                                ],
-                              ),
-                            ],
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         );
                       }),
