@@ -1,21 +1,20 @@
-// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:get/get.dart';
 import 'package:trufapp/app/core/components/_dialogs/_defaults/cards/card_bottom_sheet.dart';
 import 'package:trufapp/app/core/components/_dialogs/_defaults/cards/card_modal.dart';
-import 'package:trufapp/app/core/components/_dialogs/bottomsheets/bts_informacoes_cliente.dart';
-import 'package:trufapp/app/core/components/_dialogs/bottomsheets/bts_novo_cliente.dart';
+import 'package:trufapp/app/core/components/_dialogs/bottomsheets/bts_novo_produto.dart';
 import 'package:trufapp/app/core/components/addButtom.dart';
 import 'package:trufapp/app/core/components/appCard.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
 import 'package:trufapp/app/core/components/custom_button.dart';
 import 'package:trufapp/app/core/components/custom_text_field.dart';
+import 'package:trufapp/app/core/components/etiqueta.dart';
 import 'package:trufapp/app/core/theme/app_colors.dart';
 import 'package:trufapp/app/core/theme/app_fonts_weight.dart';
 
-class ClientesPage extends StatelessWidget {
-  const ClientesPage({super.key});
+class ProdutosPage extends StatelessWidget {
+  const ProdutosPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +33,7 @@ class ClientesPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   AppText(
-                    text: 'Clientes',
+                    text: 'Produtos',
                     color: AppColors.darkMocha240,
                     fontSize: 28,
                     fontWeight: AppFontsWeight.bold,
@@ -42,10 +41,10 @@ class ClientesPage extends StatelessWidget {
                   Addbuttom(
                     acao: () {
                       if (Get.width > 600) {
-                        Get.dialog(CardModal(filho: BtsNovoCliente()));
+                        Get.dialog(CardModal(filho: BtsNovoProduto()));
                       } else {
                         Get.bottomSheet(
-                          CardBottomSheet(filho: BtsNovoCliente()),
+                          CardBottomSheet(filho: BtsNovoProduto()),
                           isScrollControlled: true,
                         );
                       }
@@ -59,11 +58,11 @@ class ClientesPage extends StatelessWidget {
                     child: CustomTextField(
                       hintText: 'Buscar',
                       controller: TextEditingController(),
+                      textColor: AppColors.darkMocha410,
                       borderColor: AppColors.darkMocha180,
                       focusBorderColor: AppColors.darkMocha410,
                       colorHint: AppColors.darkMocha150,
                       cursorColor: AppColors.darkMocha410,
-                      textColor: AppColors.darkMocha420,
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
@@ -72,11 +71,19 @@ class ClientesPage extends StatelessWidget {
                     child: CustomButton(
                       acao: () {
                         if (Get.width > 600) {
-                          //teste
-                          // Get.dialog(ModalPadrao(filho: AppText(text: "text")));
+                          // Get.dialog(
+                          //   ModalPadrao(
+                          //     modal: BtsNovoProduto(),
+                          //     filho: BtsNovoProduto(),
+                          //     podeFecharAoTocarFora: false,
+                          //   ),
+                          // );
                         } else {
                           // Get.bottomSheet(
-                          //   BottomSheetPadrao(filho: AppText(text: "text")),
+                          //   BottomSheetPadrao(
+                          //     filho: BtsNovoProduto(),
+                          //     bottomSheet: BtsNovoProduto(),
+                          //   ),
                           // );
                         }
                       },
@@ -99,72 +106,67 @@ class ClientesPage extends StatelessWidget {
                     (index) => Appcard(
                       onTap: () {
                         if (Get.width > 600) {
-                          Get.dialog(CardModal(filho: BtsNovoCliente()));
+                          Get.dialog(CardModal(filho: BtsNovoProduto()));
                         } else {
                           Get.bottomSheet(
-                            CardBottomSheet(filho: BtsInformacoesCliente()),
+                            CardBottomSheet(
+                              filho: BtsNovoProduto(editaProduto: true),
+                              //teste
+                            ),
                             isScrollControlled: true,
                           );
                         }
                       },
                       filho: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
                         children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            spacing: 10,
-                            children: [
-                              AppText(
-                                text: 'Nome',
-                                color: AppColors.darkMocha240,
-                                fontSize: 18,
-                                fontWeight: AppFontsWeight.semiBold,
-                              ),
-                              AppText(
-                                text: 'Rua do Bobo, Nº 0',
-                                color: AppColors.darkMocha180,
-                                fontSize: 16,
-                                fontWeight: AppFontsWeight.semiBold,
-                              ),
-                              AppText(
-                                text: '(99) 9 9999-9999',
-                                color: AppColors.darkMocha180,
-                                fontSize: 16,
-                                fontWeight: AppFontsWeight.semiBold,
-                              ),
-                            ],
+                          Container(
+                            width: 60,
+                            height: 60,
+                            decoration: BoxDecoration(
+                              color: AppColors.darkMocha450,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
                           ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            spacing: 33,
-                            children: [
-                              Row(
-                                children: [
-                                  Icon(LucideIcons.circle_star, size: 20),
-                                  SizedBox(width: 12),
-                                  AppText(
-                                    text: '2',
-                                    color: AppColors.darkMocha240,
-                                    fontSize: 18,
-                                    fontWeight: AppFontsWeight.semiBold,
+                          SizedBox(width: 12),
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+
+                              children: [
+                                AppText(
+                                  text: 'Trufa de chocolate belga',
+                                  color: AppColors.darkMocha240,
+                                  fontSize: 18,
+                                  fontWeight: AppFontsWeight.semiBold,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                    top: 2,
+                                    bottom: 5,
                                   ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Icon(LucideIcons.gift, size: 20),
-                                  SizedBox(width: 12),
-                                  AppText(
-                                    text: '2',
-                                    color: AppColors.darkMocha240,
-                                    fontSize: 18,
-                                    fontWeight: AppFontsWeight.semiBold,
-                                  ),
-                                ],
-                              ),
-                            ],
+                                  child: Etiqueta(texto: 'Trufas'),
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    AppText(
+                                      text: 'Estoque: 21',
+                                      fontSize: 18,
+                                      color: AppColors.darkMocha240,
+                                    ),
+                                    AppText(
+                                      text: 'R\$ 2,50',
+                                      fontSize: 18,
+                                      color: AppColors.darkMocha240,
+                                    ),
+                                  ],
+                                ),
+
+                                //teste
+                              ],
+                            ),
                           ),
                         ],
                       ),
