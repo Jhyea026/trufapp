@@ -28,9 +28,7 @@ class HomeController extends GetxController {
     ItensMenuModelo(
       chave: "produtos",
       icone: LucideIcons.box,
-      tela: const Center(
-        child: ProdutosPage(),
-      ),
+      tela: const Center(child: ProdutosPage()),
     ),
     ItensMenuModelo(
       chave: "carrinho",

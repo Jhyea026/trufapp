@@ -72,6 +72,7 @@ class ClientesPage extends StatelessWidget {
                     child: CustomButton(
                       acao: () {
                         if (Get.width > 600) {
+                          //teste
                           // Get.dialog(ModalPadrao(filho: AppText(text: "text")));
                         } else {
                           // Get.bottomSheet(
