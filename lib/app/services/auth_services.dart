@@ -20,13 +20,6 @@ class AuthService {
     if (user == null) {
       throw Exception('Não foi possível criar o usuário.');
     }
-
-    await _supabase.from('profiles').insert({
-      'id': user.id,
-      'nome': name,
-      'username': username,
-      'email': email,
-    });
   }
 
   Future<void> login({required String login, required String password}) async {
