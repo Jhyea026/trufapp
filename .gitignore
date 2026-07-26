@@ -37,6 +37,7 @@ build/
 .env
 .env.*
 !.env.example
+.vscode/launch.json
 
 # Symbolication related
 app.*.symbols
