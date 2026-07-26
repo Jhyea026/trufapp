@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:get/route_manager.dart';
 import 'package:trufapp/app/core/components/app_text_field.dart';
 import 'package:trufapp/app/core/routes/pages_routes.dart';
 import 'package:trufapp/app/core/theme/app_colors.dart';
+import 'package:trufapp/app/services/auth_services.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -18,6 +18,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final _usernameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final AuthService _authService = AuthService();
 
   @override
   void dispose() {
@@ -28,9 +29,28 @@ class _RegisterPageState extends State<RegisterPage> {
     super.dispose();
   }
 
-  void _onSubmit() {
-    if (_formKey.currentState?.validate() ?? false) {
+  Future<void> _onSubmit() async {
+    if (!(_formKey.currentState?.validate() ?? false)) {
+      return;
+    }
+
+    try {
+      await _authService.cadastrarUsuario(
+        name: _nameController.text.trim(),
+        username: _usernameController.text.trim(),
+        email: _emailController.text.trim(),
+        senha: _passwordController.text,
+      );
+
+      if (!mounted) return;
+
       Get.offNamed(Routes.autorizar);
+    } catch (e) {
+      if (!mounted) return;
+
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Erro ao criar conta: $e')));
     }
   }
 
@@ -50,16 +70,12 @@ class _RegisterPageState extends State<RegisterPage> {
                   children: [
                     Column(
                       children: [
-                        // Logo asset from Figma (candy + "TrufApp" wordmark baked into
-                        // the same image). Download it and place it under
-                        // assets/images/truf_logo.png, then register it in pubspec.yaml.
                         Image.asset(
                           'assets/images/TrufApp_logo.png',
-                          width: 300,
-                          height: 300,
+                          width: 280,
+                          height: 280,
                           fit: BoxFit.contain,
                         ),
-
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Column(
@@ -87,8 +103,6 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
                         ),
                         const SizedBox(height: 28),
-
-                        // All four fields now share ONE component: AppTextField.
                         AppTextField(
                           label: 'Nome',
                           controller: _nameController,
@@ -195,7 +209,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   const Text(
-                    '© 2025 TrufApp. Todos os direitos reservados.',
+                    '© 2026 TrufApp. Todos os direitos reservados.',
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 10, color: Colors.black),
                   ),

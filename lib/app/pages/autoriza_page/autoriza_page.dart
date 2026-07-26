@@ -122,7 +122,7 @@ class AutorizaPage extends StatelessWidget {
               Spacer(),
 
               Text(
-                '© 2025 TrufApp. Todos os direitos reservados.',
+                '© 2026 TrufApp. Todos os direitos reservados.',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 10, color: Colors.black),
               ),

@@ -6,6 +6,7 @@ import 'package:trufapp/app/core/components/custom_text_field.dart';
 import 'package:trufapp/app/core/routes/pages_routes.dart';
 import 'package:trufapp/app/core/theme/app_colors.dart';
 import 'package:trufapp/app/core/theme/app_fonts_weight.dart';
+import 'package:trufapp/app/pages/login/login_controller.dart';
 import 'package:trufapp/app/utils/custom_shadow.dart';
 
 class LoginPage extends StatelessWidget {
@@ -13,6 +14,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.find<LoginController>();
     return SafeArea(
       child: Material(
         color: Colors.transparent,
@@ -48,24 +50,24 @@ class LoginPage extends StatelessWidget {
                           spacing: 10,
                           children: [
                             CustomTextField(
-                              controller: TextEditingController(),
+                              controller: controller.loginController,
                               hintText: "Login",
                             ),
                             CustomTextField(
                               hintText: 'Senha',
                               obscure: true,
-                              controller: TextEditingController(),
+                              controller: controller.passwordController,
                             ),
                           ],
                         ),
-                        CustomButton(
-                          texto: 'Entrar',
-                          corFundo: AppColors.lightMocha10,
-                          mostraBorda: false,
-                          carregando: false,
-                          acao: () {
-                            Get.offNamed(Routes.selectBox);
-                          },
+                        Obx(
+                          () => CustomButton(
+                            texto: 'Entrar',
+                            corFundo: AppColors.lightMocha10,
+                            mostraBorda: false,
+                            carregando: controller.isLoading.value,
+                            acao: controller.login,
+                          ),
                         ),
                       ],
                     ),
