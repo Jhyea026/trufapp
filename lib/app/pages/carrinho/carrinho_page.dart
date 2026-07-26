@@ -45,6 +45,7 @@ class CarrinhoPage extends StatelessWidget {
                 SizedBox(height: 12),
                 Expanded(
                   child: SingleChildScrollView(
+                    padding: EdgeInsets.only(bottom: 52),
                     child: Column(
                       children: [
                         ...List.generate(

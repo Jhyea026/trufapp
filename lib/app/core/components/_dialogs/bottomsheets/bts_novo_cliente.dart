@@ -89,6 +89,9 @@ class BtsNovoCliente extends StatelessWidget {
             corHover: AppColors.darkMocha430,
             corTexto: AppColors.lightMocha10,
             acao: () {
+              if (Get.isBottomSheetOpen ?? false) {
+                Get.back();
+              }
               if (Get.width > 600) {
                 Get.dialog(CardModal(filho: BtsInformacoesCliente()));
               } else {

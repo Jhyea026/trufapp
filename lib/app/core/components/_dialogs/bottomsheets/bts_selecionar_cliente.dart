@@ -143,6 +143,9 @@ class BtsSelecionarCliente extends StatelessWidget {
                   corBorda: AppColors.darkMocha420,
                   corHover: AppColors.darkMocha430,
                   acao: () {
+                    if (Get.isBottomSheetOpen ?? false) {
+                      Get.back();
+                    }
                     if (Get.width > 600) {
                       Get.dialog(CardModal(filho: BtsInformacoesVenda()));
                     } else {

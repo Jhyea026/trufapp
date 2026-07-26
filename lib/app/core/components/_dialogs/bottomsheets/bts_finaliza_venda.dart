@@ -144,7 +144,7 @@ class BtsFinalizavenda extends StatelessWidget {
               child: ListView.separated(
                 shrinkWrap: true,
                 itemCount: itensResumo.length,
-                separatorBuilder: (_, __) => const SizedBox(height: 12),
+                separatorBuilder: (_, _) => const SizedBox(height: 12),
                 itemBuilder: (context, index) =>
                     _ItemResumoTile(item: itensResumo[index]),
               ),

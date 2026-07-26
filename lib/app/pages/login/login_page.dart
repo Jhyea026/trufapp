@@ -26,15 +26,13 @@ class LoginPage extends StatelessWidget {
               Column(
                 children: [
                   Image.asset('assets/images/TrufApp_logo.png'),
-                  
+
                   Container(
                     constraints: BoxConstraints(maxWidth: 400),
                     decoration: BoxDecoration(
                       color: AppColors.darkMocha410,
                       borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        customShadow()
-                      ]
+                      boxShadow: [customShadow()],
                     ),
                     padding: EdgeInsets.fromLTRB(17, 20, 17, 21),
                     child: Column(
@@ -71,6 +69,17 @@ class LoginPage extends StatelessWidget {
                         ),
                       ],
                     ),
+                  ),
+                  SizedBox(height: 24),
+                  CustomButton(
+                    texto: 'Criar Conta',
+                    corFundo: AppColors.lightMocha10,
+                    mostraBorda: false,
+                    carregando: false,
+                    corHover: Colors.transparent,
+                    acao: () {
+                      Get.offNamed(Routes.registrar);
+                    },
                   ),
                 ],
               ),

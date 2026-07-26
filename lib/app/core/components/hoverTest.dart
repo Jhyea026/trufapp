@@ -13,7 +13,8 @@ class _HoverFillButtonState extends State<Hovertest> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Center( // equivalente ao .wrapper centralizado
+      child: Center(
+        // equivalente ao .wrapper centralizado
         child: MouseRegion(
           onEnter: (_) => setState(() => isHovering = true),
           onExit: (_) => setState(() => isHovering = false),
@@ -25,7 +26,6 @@ class _HoverFillButtonState extends State<Hovertest> {
             ),
             child: Stack(
               children: [
-
                 // 🔴 Fundo animado (equivalente ao :after)
                 AnimatedContainer(
                   duration: const Duration(milliseconds: 350),
@@ -39,7 +39,9 @@ class _HoverFillButtonState extends State<Hovertest> {
                   child: AnimatedDefaultTextStyle(
                     duration: const Duration(milliseconds: 350),
                     style: TextStyle(
-                      color: isHovering ? Colors.white : const Color(0xFF333333),
+                      color: isHovering
+                          ? Colors.white
+                          : const Color(0xFF333333),
                       letterSpacing: 2,
                       fontSize: 18,
                     ),

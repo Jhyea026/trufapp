@@ -269,6 +269,9 @@ class BtsInformacoesVenda extends StatelessWidget {
                 ),
               ),
               acao: () {
+                if (Get.isBottomSheetOpen ?? false) {
+                  Get.back();
+                }
                 if (Get.width > 600) {
                   Get.dialog(CardModal(filho: BtsFinalizavenda()));
                 } else {
