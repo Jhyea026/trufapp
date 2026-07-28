@@ -87,11 +87,11 @@ class LoginPage extends StatelessWidget {
               ),
               Spacer(),
               Padding(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: AppText(
-                  text: '© 2026 TrufApp. Todos os direitos reservados.',
-                  color: AppColors.darkMocha240,
-                  fontSize: 16,
+                padding: const EdgeInsets.only(bottom: 16),
+                child: Text(
+                  '© 2026 TrufApp. Todos os direitos reservados.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 10, color: Colors.black),
                 ),
               ),
             ],

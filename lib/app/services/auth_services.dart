@@ -32,4 +32,13 @@ class AuthService {
 
     await _supabase.auth.signInWithPassword(email: email, password: password);
   }
+
+  User? get currentUser => _supabase.auth.currentUser;
+
+  Stream<AuthState> get authStateChanges => _supabase.auth.onAuthStateChange;
+
+  // Encerra a sessão
+  Future<void> logout() async {
+    await _supabase.auth.signOut();
+  }
 }

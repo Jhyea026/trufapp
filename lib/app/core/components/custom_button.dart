@@ -60,7 +60,13 @@ class _CustomButtonState extends State<CustomButton> {
             ? Center(
                 widthFactor: 4,
                 heightFactor: 4,
-                child: CircularProgressIndicator(color: AppColors.darkMocha410),
+                child: SizedBox(
+                  width: 20,
+                  height: 20,
+                  child: CircularProgressIndicator(
+                    color: AppColors.darkMocha410,
+                  ),
+                ),
               )
             : Center(
                 child:

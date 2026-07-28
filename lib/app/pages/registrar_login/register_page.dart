@@ -72,8 +72,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       children: [
                         Image.asset(
                           'assets/images/TrufApp_logo.png',
-                          width: 280,
-                          height: 280,
+                          width: 230,
+                          height: 230,
                           fit: BoxFit.contain,
                         ),
                         Align(
@@ -86,7 +86,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 style: TextStyle(
                                   fontFamily: 'Open Sans',
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 32,
+                                  fontSize: 30,
                                   color: AppColors.darkMocha410,
                                 ),
                               ),

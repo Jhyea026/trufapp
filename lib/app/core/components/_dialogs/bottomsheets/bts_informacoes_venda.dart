@@ -8,6 +8,7 @@ import 'package:trufapp/app/core/components/_dialogs/bottomsheets/bts_finaliza_v
 import 'package:trufapp/app/core/components/appCard.dart';
 import 'package:trufapp/app/core/components/apptext.dart';
 import 'package:trufapp/app/core/components/custom_button.dart';
+import 'package:trufapp/app/core/components/etiqueta.dart';
 import 'package:trufapp/app/core/theme/app_colors.dart';
 import 'package:trufapp/app/core/theme/app_fonts_weight.dart';
 
@@ -36,6 +37,7 @@ class BtsInformacoesVenda extends StatelessWidget {
             ),
             Appcard(
               filho: Column(
+                spacing: 6,
                 children: [
                   Row(
                     children: [
@@ -115,15 +117,7 @@ class BtsInformacoesVenda extends StatelessWidget {
                         fontSize: 18,
                         fontWeight: AppFontsWeight.regular,
                       ),
-                      Container(
-                        margin: EdgeInsets.only(bottom: 12),
-                        padding: EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: AppColors.lightMocha30,
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: AppColors.darkMocha450),
-                        ),
-                      ),
+                      Etiqueta(texto: 'Pix', corBorda: AppColors.accentsGreen),
                     ],
                   ),
                   Row(
