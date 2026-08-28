@@ -18,84 +18,94 @@ class LoginPage extends StatelessWidget {
     return SafeArea(
       child: Material(
         color: Colors.transparent,
-        child: Container(
-          width: double.infinity,
-          height: double.infinity,
-          padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-          decoration: BoxDecoration(color: AppColors.lightMocha10),
-          child: Column(
-            children: [
-              Column(
-                children: [
-                  Image.asset('assets/images/TrufApp_logo.png'),
+        child: GetBuilder<LoginController>(
+          // init: MyController(),
+          // initState: (_) {},
+          builder: (_) {
+            return LayoutBuilder(
+              builder: (context, constraints) {
+                return Container(
+                  width: constraints.maxWidth >= 600 ? 400 : double.infinity,
+                  height: double.infinity,
+                  padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  decoration: BoxDecoration(color: AppColors.lightMocha10),
+                  child: Column(
+                    children: [
+                      Column(
+                        children: [
+                          Image.asset('assets/images/TrufApp_logo.png'),
 
-                  Container(
-                    constraints: BoxConstraints(maxWidth: 400),
-                    decoration: BoxDecoration(
-                      color: AppColors.darkMocha410,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [customShadow()],
-                    ),
-                    padding: EdgeInsets.fromLTRB(17, 20, 17, 21),
-                    child: Column(
-                      spacing: 15,
-                      children: [
-                        AppText(
-                          text: "Login",
-                          color: Colors.white,
-                          fontSize: 34,
-                          fontWeight: AppFontsWeight.regular,
-                        ),
-                        Column(
-                          spacing: 10,
-                          children: [
-                            CustomTextField(
-                              controller: controller.loginController,
-                              hintText: "Login",
+                          Container(
+                            constraints: BoxConstraints(maxWidth: 400),
+                            decoration: BoxDecoration(
+                              color: AppColors.darkMocha410,
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: [customShadow()],
                             ),
-                            CustomTextField(
-                              hintText: 'Senha',
-                              obscure: true,
-                              controller: controller.passwordController,
+                            padding: EdgeInsets.fromLTRB(17, 20, 17, 21),
+                            child: Column(
+                              spacing: 15,
+                              children: [
+                                AppText(
+                                  text: "Login",
+                                  color: Colors.white,
+                                  fontSize: 34,
+                                  fontWeight: AppFontsWeight.regular,
+                                ),
+                                Column(
+                                  spacing: 10,
+                                  children: [
+                                    CustomTextField(
+                                      controller: controller.loginController,
+                                      hintText: "Login",
+                                    ),
+                                    CustomTextField(
+                                      hintText: 'Senha',
+                                      obscure: true,
+                                      controller: controller.passwordController,
+                                    ),
+                                  ],
+                                ),
+                                Obx(
+                                  () => CustomButton(
+                                    texto: 'Entrar',
+                                    corFundo: AppColors.lightMocha10,
+                                    mostraBorda: false,
+                                    carregando: controller.isLoading.value,
+                                    acao: controller.login,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
-                        Obx(
-                          () => CustomButton(
-                            texto: 'Entrar',
+                          ),
+                          SizedBox(height: 24),
+                          CustomButton(
+                            texto: 'Criar Conta',
                             corFundo: AppColors.lightMocha10,
                             mostraBorda: false,
-                            carregando: controller.isLoading.value,
-                            acao: controller.login,
+                            carregando: false,
+                            corHover: Colors.transparent,
+                            acao: () {
+                              Get.offNamed(Routes.registrar);
+                            },
                           ),
+                        ],
+                      ),
+                      Spacer(),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 16),
+                        child: Text(
+                          '© 2026 TrufApp. Todos os direitos reservados.',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 10, color: Colors.black),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 24),
-                  CustomButton(
-                    texto: 'Criar Conta',
-                    corFundo: AppColors.lightMocha10,
-                    mostraBorda: false,
-                    carregando: false,
-                    corHover: Colors.transparent,
-                    acao: () {
-                      Get.offNamed(Routes.registrar);
-                    },
-                  ),
-                ],
-              ),
-              Spacer(),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 16),
-                child: Text(
-                  '© 2026 TrufApp. Todos os direitos reservados.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 10, color: Colors.black),
-                ),
-              ),
-            ],
-          ),
+                );
+              },
+            );
+          },
         ),
       ),
     );

@@ -18,6 +18,7 @@ class DropdownWidget extends StatefulWidget {
     this.valorInicial,
     this.itens,
     this.larguradropdown,
+    required Function(Color) onSelecionado,
   });
 
   @override

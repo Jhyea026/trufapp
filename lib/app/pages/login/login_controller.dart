@@ -29,7 +29,7 @@ class LoginController extends GetxController {
 
       await _authService.login(login: login, password: password);
 
-      Get.offNamed(Routes.selectBox);
+      Get.offAllNamed(Routes.dashboard);
     } on AuthException catch (e) {
       Get.snackbar('Erro ao entrar', e.message);
     } catch (e) {

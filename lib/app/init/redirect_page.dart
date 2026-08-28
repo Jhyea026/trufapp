@@ -11,7 +11,7 @@ class RedirectPage extends StatelessWidget {
   Future<String> _pegarRotaInicial() async {
     log("Checkando dados a serem pré carregados...");
     try {
-      await Future.delayed(const Duration(seconds: 3));
+      await Future.delayed(const Duration(seconds: 2));
     } catch (e) {
       log("Error de inicialização: $e");
     }

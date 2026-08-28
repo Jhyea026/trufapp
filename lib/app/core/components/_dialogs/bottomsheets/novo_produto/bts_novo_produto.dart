@@ -1,0 +1,235 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:trufapp/app/core/components/_dialogs/bottomsheets/novo_produto/novo_produto_controller.dart';
+import 'package:trufapp/app/core/components/apptext.dart';
+import 'package:trufapp/app/core/components/custom_button.dart';
+import 'package:trufapp/app/core/components/custom_text_field.dart';
+import 'package:trufapp/app/core/components/dropdown_widget.dart';
+import 'package:trufapp/app/core/components/image_picker_field.dart';
+import 'package:trufapp/app/core/theme/app_colors.dart';
+import 'package:trufapp/app/core/theme/app_fonts_weight.dart';
+
+class BtsNovoProduto extends StatelessWidget {
+  final bool? editaProduto;
+  final String? idProdutoEdicao; // passe o id quando for edição
+  const BtsNovoProduto({
+    super.key,
+    this.editaProduto = false,
+    this.idProdutoEdicao,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GetBuilder<NovoProdutoController>(
+      init: NovoProdutoController(),
+      builder: (controller) {
+        return Padding(
+          padding: const EdgeInsets.only(bottom: 40, left: 20, right: 20),
+          child: Column(
+            children: [
+              AppText(
+                text: editaProduto == false ? 'Novo produto' : 'Editar produto',
+                color: AppColors.darkMocha240,
+                fontSize: 28,
+                fontWeight: AppFontsWeight.bold,
+              ),
+              const SizedBox(height: 20),
+
+              // 👇 Novo campo de imagem
+              ImagePickerField(
+                onImagemSelecionada: (bytes, nomeArquivo) =>
+                    controller.definirImagem(bytes, nomeArquivo),
+              ),
+
+              const SizedBox(height: 24),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                spacing: 8,
+                children: [
+                  AppText(
+                    text: 'Nome do produto',
+                    color: AppColors.darkMocha240,
+                    fontSize: 18,
+                    fontWeight: AppFontsWeight.semiBold,
+                    textAlign: TextAlign.start,
+                  ),
+                  CustomTextField(
+                    hintText: 'Trufa de chocolate...',
+                    controller: controller.nomeController,
+                    borderColor: AppColors.darkMocha240,
+                    colorHint: AppColors.darkMocha150,
+                    focusBorderColor: AppColors.darkMocha420,
+                    cursorColor: AppColors.darkMocha410,
+                    textColor: AppColors.darkMocha420,
+                  ),
+                  AppText(
+                    text: 'Sabor',
+                    color: AppColors.darkMocha240,
+                    fontSize: 18,
+                    fontWeight: AppFontsWeight.semiBold,
+                    textAlign: TextAlign.start,
+                  ),
+                  CustomTextField(
+                    hintText: 'Chocolate...',
+                    controller: controller.saborController,
+                    borderColor: AppColors.darkMocha240,
+                    colorHint: AppColors.darkMocha150,
+                    focusBorderColor: AppColors.darkMocha420,
+                    cursorColor: AppColors.darkMocha410,
+                    textColor: AppColors.darkMocha240,
+                  ),
+                  // 👇 Categoria agora vem do banco (Obx reage à lista carregada)
+                  Obx(
+                    () => controller.carregandoCategorias.value
+                        ? const Padding(
+                            padding: EdgeInsets.symmetric(vertical: 8),
+                            child: SizedBox(
+                              height: 20,
+                              width: 20,
+                              child: CircularProgressIndicator(strokeWidth: 2),
+                            ),
+                          )
+                        : DropdownWidget(
+                            titulo: "Categoria",
+                            itens: controller.categorias
+                                .map(
+                                  (c) => DropdownMenuEntry(
+                                    value: c.id
+                                        .toString(), // DropdownWidget só aceita String
+                                    label: c.nome,
+                                  ),
+                                )
+                                .toList(),
+                            onChanged: (valor) =>
+                                controller.categoriaSelecionada = int.tryParse(
+                                  valor ?? '',
+                                ),
+                            onSelecionado:
+                                (
+                                  Color _,
+                                ) {}, // parâmetro obrigatório não utilizado pelo widget
+                          ),
+                  ),
+                  Wrap(
+                    spacing: 12,
+                    runSpacing: 8,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          AppText(
+                            text: 'Peso',
+                            color: AppColors.darkMocha240,
+                            fontSize: 18,
+                            fontWeight: AppFontsWeight.semiBold,
+                            textAlign: TextAlign.start,
+                          ),
+                          CustomTextField(
+                            width: 100,
+                            hintText: '0',
+                            controller: controller.pesoController,
+                            borderColor: AppColors.darkMocha240,
+                            colorHint: AppColors.darkMocha150,
+                            focusBorderColor: AppColors.darkMocha420,
+                            cursorColor: AppColors.darkMocha410,
+                            textColor: AppColors.darkMocha240,
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          AppText(
+                            text: 'Estoque',
+                            color: AppColors.darkMocha240,
+                            fontSize: 18,
+                            fontWeight: AppFontsWeight.semiBold,
+                            textAlign: TextAlign.start,
+                          ),
+                          CustomTextField(
+                            width: 100,
+                            hintText: '0',
+                            controller: controller.estoqueController,
+                            borderColor: AppColors.darkMocha240,
+                            colorHint: AppColors.darkMocha150,
+                            focusBorderColor: AppColors.darkMocha420,
+                            cursorColor: AppColors.darkMocha410,
+                            textColor: AppColors.darkMocha240,
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          AppText(
+                            text: 'Pontos retirada',
+                            color: AppColors.darkMocha240,
+                            fontSize: 18,
+                            fontWeight: AppFontsWeight.semiBold,
+                            textAlign: TextAlign.start,
+                          ),
+                          CustomTextField(
+                            width: 144,
+                            hintText: '0',
+                            controller: controller.pontosController,
+                            borderColor: AppColors.darkMocha240,
+                            colorHint: AppColors.darkMocha150,
+                            focusBorderColor: AppColors.darkMocha420,
+                            cursorColor: AppColors.darkMocha410,
+                            textColor: AppColors.darkMocha240,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  AppText(
+                    text: 'Preço',
+                    color: AppColors.darkMocha240,
+                    fontSize: 18,
+                    fontWeight: AppFontsWeight.semiBold,
+                    textAlign: TextAlign.start,
+                  ),
+                  CustomTextField(
+                    prefixBuilder: (hasFocus) => AppText(
+                      text: 'R\$',
+                      color: hasFocus
+                          ? AppColors.darkMocha420
+                          : AppColors.darkMocha240,
+                      fontSize: 21,
+                      fontWeight: AppFontsWeight.semiBold,
+                    ),
+                    hintText: '0,00',
+                    controller: controller.precoController,
+                    borderColor: AppColors.darkMocha240,
+                    colorHint: AppColors.darkMocha150,
+                    focusBorderColor: AppColors.darkMocha420,
+                    cursorColor: AppColors.darkMocha410,
+                    textColor: AppColors.darkMocha240,
+                  ),
+                  const SizedBox(height: 24),
+
+                  // 👇 Botão reage ao estado de carregando (usa 'acao', não 'onTap')
+                  Obx(
+                    () => CustomButton(
+                      texto: "Salvar",
+                      altura: 47,
+                      carregando: controller.carregando.value,
+                      corFundo: AppColors.darkMocha420,
+                      corHover: AppColors.darkMocha430,
+                      corTexto: AppColors.lightMocha10,
+                      acao: controller.carregando.value
+                          ? null
+                          : () => controller.salvarComValidacao(
+                              idProdutoEdicao: idProdutoEdicao,
+                            ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}

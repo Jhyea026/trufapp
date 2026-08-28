@@ -26,6 +26,7 @@ class CustomButton extends StatefulWidget {
     this.corTexto,
     this.corHover,
     this.corBorda,
+    Future<dynamic> Function()? onTap,
   });
 
   @override

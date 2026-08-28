@@ -3,7 +3,7 @@ import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:get/get.dart';
 import 'package:trufapp/app/core/components/_dialogs/_defaults/cards/card_bottom_sheet.dart';
 import 'package:trufapp/app/core/components/_dialogs/_defaults/cards/card_modal.dart';
-import 'package:trufapp/app/core/components/_dialogs/bottomsheets/bts_novo_produto.dart';
+import 'package:trufapp/app/core/components/_dialogs/bottomsheets/novo_produto/bts_novo_produto.dart';
 import 'package:trufapp/app/core/components/addButtom.dart';
 import 'package:trufapp/app/core/components/appCard.dart';
 import 'package:trufapp/app/core/components/apptext.dart';

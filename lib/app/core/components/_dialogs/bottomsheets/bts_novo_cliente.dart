@@ -47,6 +47,33 @@ class BtsNovoCliente extends StatelessWidget {
                 cursorColor: AppColors.darkMocha410,
                 textColor: AppColors.darkMocha420,
               ),
+              Row(
+                children: [
+                  AppText(
+                    text: 'Apelido',
+                    color: AppColors.darkMocha240,
+                    fontSize: 18,
+                    fontWeight: AppFontsWeight.semiBold,
+                    textAlign: TextAlign.start,
+                  ),
+                  AppText(
+                    text: ' (Opcional)',
+                    color: AppColors.darkMocha240,
+                    fontSize: 14,
+                    fontWeight: AppFontsWeight.regular,
+                    textAlign: TextAlign.start,
+                  ),
+                ],
+              ),
+              CustomTextField(
+                hintText: 'Fulano de tal...',
+                controller: TextEditingController(),
+                borderColor: AppColors.darkMocha240,
+                colorHint: AppColors.darkMocha150,
+                focusBorderColor: AppColors.darkMocha420,
+                cursorColor: AppColors.darkMocha410,
+                textColor: AppColors.darkMocha420,
+              ),
               AppText(
                 text: 'Endereço',
                 color: AppColors.darkMocha240,
@@ -72,6 +99,33 @@ class BtsNovoCliente extends StatelessWidget {
               ),
               CustomTextField(
                 hintText: '(99) 9 9999-9999',
+                controller: TextEditingController(),
+                borderColor: AppColors.darkMocha240,
+                colorHint: AppColors.darkMocha150,
+                focusBorderColor: AppColors.darkMocha420,
+                cursorColor: AppColors.darkMocha410,
+                textColor: AppColors.darkMocha420,
+              ),
+              Row(
+                children: [
+                  AppText(
+                    text: 'Observação',
+                    color: AppColors.darkMocha240,
+                    fontSize: 18,
+                    fontWeight: AppFontsWeight.semiBold,
+                    textAlign: TextAlign.start,
+                  ),
+                  AppText(
+                    text: ' (Opcional)',
+                    color: AppColors.darkMocha240,
+                    fontSize: 14,
+                    fontWeight: AppFontsWeight.regular,
+                    textAlign: TextAlign.start,
+                  ),
+                ],
+              ),
+              CustomTextField(
+                hintText: 'Adicione uma observação...',
                 controller: TextEditingController(),
                 borderColor: AppColors.darkMocha240,
                 colorHint: AppColors.darkMocha150,

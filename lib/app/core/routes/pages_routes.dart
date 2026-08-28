@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:trufapp/app/core/routes/middleware/auth_middleware.dart';
 import 'package:trufapp/app/init/redirect_page.dart';
 import 'package:trufapp/app/pages/autoriza_page/autoriza_page.dart';
 import 'package:trufapp/app/pages/home/home_page.dart';
@@ -12,16 +13,33 @@ part 'routes.dart';
 class PagesRoutes {
   static final routes = [
     GetPage(name: Routes.initial, page: () => const RedirectPage()),
-    GetPage(name: Routes.registrar, page: () => const RegisterPage()),
-    GetPage(name: Routes.autorizar, page: () => const AutorizaPage()),
-    GetPage(name: Routes.dashboard, page: () => const HomePage()),
-    GetPage(name: Routes.selectBox, page: () => const SelectBoxPage()),
+    GetPage(
+      name: Routes.registrar,
+      page: () => const RegisterPage(),
+      middlewares: [GuestMiddleware()],
+    ),
+    GetPage(
+      name: Routes.autorizar,
+      page: () => const AutorizaPage(),
+      middlewares: [AuthMiddleware()],
+    ),
+    GetPage(
+      name: Routes.dashboard,
+      page: () => const HomePage(),
+      middlewares: [AuthMiddleware()],
+    ),
+    GetPage(
+      name: Routes.selectBox,
+      page: () => const SelectBoxPage(),
+      middlewares: [AuthMiddleware()],
+    ),
     GetPage(
       name: Routes.login,
       page: () => const LoginPage(),
       binding: BindingsBuilder(() {
         Get.lazyPut<LoginController>(() => LoginController());
       }),
+      middlewares: [GuestMiddleware()],
     ),
   ];
 }

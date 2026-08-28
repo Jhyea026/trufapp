@@ -3,7 +3,6 @@ import 'package:flutter_lucide/flutter_lucide.dart';
 import 'package:get/get.dart';
 import 'package:trufapp/app/core/components/_dialogs/_defaults/cards/card_bottom_sheet.dart';
 import 'package:trufapp/app/core/components/_dialogs/bottomsheets/bts_confirma_logout.dart';
-import 'package:trufapp/app/core/components/_dialogs/bottomsheets/bts_novo_produto.dart';
 import 'package:trufapp/app/core/models/itens_menu_modelo.dart';
 import 'package:trufapp/app/core/routes/pages_routes.dart';
 import 'package:trufapp/app/pages/carrinho/carrinho_page.dart';

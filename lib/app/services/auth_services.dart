@@ -37,7 +37,6 @@ class AuthService {
 
   Stream<AuthState> get authStateChanges => _supabase.auth.onAuthStateChange;
 
-  // Encerra a sessão
   Future<void> logout() async {
     await _supabase.auth.signOut();
   }
