@@ -11,6 +11,7 @@ class DropdownWidget extends StatefulWidget {
   final String? valorInicial;
   final String? titulo;
   final double? larguradropdown;
+
   const DropdownWidget({
     super.key,
     this.titulo,
@@ -30,8 +31,18 @@ class _DropdownWidgetState extends State<DropdownWidget> {
 
   @override
   void initState() {
-    tratandoLista();
     super.initState();
+    tratandoLista();
+  }
+
+  @override
+  void didUpdateWidget(covariant DropdownWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    // Atualiza as opções quando o pai fornecer uma nova lista.
+    if (oldWidget.itens != widget.itens) {
+      tratandoLista();
+    }
   }
 
   void tratandoLista() {
@@ -40,11 +51,7 @@ class _DropdownWidgetState extends State<DropdownWidget> {
         value: item.value,
         label: item.label,
         labelWidget: Padding(
-          padding: const EdgeInsets.only(
-            top: 12, //
-            bottom: 24,
-            // horizontal: 16, //
-          ),
+          padding: const EdgeInsets.only(top: 12, bottom: 24),
           child: AppText(
             text: item.label,
             fontSize: 18,
@@ -77,46 +84,66 @@ class _DropdownWidgetState extends State<DropdownWidget> {
                 fontWeight: AppFontsWeight.semiBold,
               ),
             ),
+
           DropdownMenu(
-            hintText: "Selecione",
+            hintText: 'Selecione',
+
             textStyle: textStyle(color: AppColors.darkMocha240, fontSize: 18),
-            // label: AppText(text: "text"),
+
             width: widget.larguradropdown,
+
             dropdownMenuEntries: listItens,
-            initialSelection: widget.valorInicial ?? 'default',
+
+            // Cadastro:
+            // valorInicial = null → mostra "Selecione"
+            //
+            // Edição:
+            // valorInicial = ID da categoria → seleciona a categoria
+            initialSelection: widget.valorInicial,
+
             onSelected: (onValue) {
               widget.onChanged?.call(onValue);
-              log("Selected: $onValue");
+
+              log('Selected: $onValue');
             },
-            // menuHeight: 49, // altura do card que é aberto
+
             trailingIcon: Icon(
               Icons.keyboard_arrow_down,
               size: 24,
               color: AppColors.darkMocha240,
             ),
+
             selectedTrailingIcon: Icon(
               Icons.keyboard_arrow_down,
               size: 24,
               color: AppColors.darkMocha420,
             ),
+
             expandedInsets: EdgeInsets.all(0),
+
             inputDecorationTheme: InputDecorationTheme(
               hintStyle: textStyle(color: AppColors.darkMocha150, fontSize: 18),
+
               constraints: BoxConstraints(maxWidth: double.infinity),
+
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide(color: AppColors.darkMocha240),
               ),
+
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide(color: AppColors.darkMocha420, width: 2),
               ),
             ),
+
             menuStyle: MenuStyle(
               backgroundColor: WidgetStatePropertyAll(AppColors.lightMocha10),
+
               shape: WidgetStatePropertyAll(
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
               ),
+
               padding: WidgetStatePropertyAll(EdgeInsets.all(22)),
             ),
           ),

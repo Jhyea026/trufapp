@@ -8,13 +8,13 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        decoration: BoxDecoration(color: AppColors.darkMocha130),
+        decoration: BoxDecoration(color: AppColors.lightMocha10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset('assets/images/TrufApp_logo.png'),
             SizedBox(height: 72),
-            const CircularProgressIndicator(color: AppColors.darkMocha460,),
+            const CircularProgressIndicator(color: AppColors.darkMocha460),
           ],
         ),
       ),

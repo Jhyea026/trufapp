@@ -11,7 +11,8 @@ import 'package:trufapp/app/core/theme/app_fonts_weight.dart';
 
 class BtsNovoProduto extends StatelessWidget {
   final bool? editaProduto;
-  final String? idProdutoEdicao; // passe o id quando for edição
+  final int? idProdutoEdicao;
+
   const BtsNovoProduto({
     super.key,
     this.editaProduto = false,
@@ -21,8 +22,15 @@ class BtsNovoProduto extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<NovoProdutoController>(
-      init: NovoProdutoController(),
+      init: NovoProdutoController(idProdutoEdicao: idProdutoEdicao),
       builder: (controller) {
+        if (controller.carregandoProduto.value) {
+          return const Padding(
+            padding: EdgeInsets.all(40),
+            child: Center(child: CircularProgressIndicator()),
+          );
+        }
+
         return Padding(
           padding: const EdgeInsets.only(bottom: 40, left: 20, right: 20),
           child: Column(
@@ -33,15 +41,19 @@ class BtsNovoProduto extends StatelessWidget {
                 fontSize: 28,
                 fontWeight: AppFontsWeight.bold,
               ),
+
               const SizedBox(height: 20),
 
-              // 👇 Novo campo de imagem
+              // IMAGEM
               ImagePickerField(
-                onImagemSelecionada: (bytes, nomeArquivo) =>
-                    controller.definirImagem(bytes, nomeArquivo),
+                imagemUrlAtual: controller.imagemUrlAtual,
+                onImagemSelecionada: (bytes, nomeArquivo) {
+                  controller.definirImagem(bytes, nomeArquivo);
+                },
               ),
 
               const SizedBox(height: 24),
+
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 spacing: 8,
@@ -53,6 +65,7 @@ class BtsNovoProduto extends StatelessWidget {
                     fontWeight: AppFontsWeight.semiBold,
                     textAlign: TextAlign.start,
                   ),
+
                   CustomTextField(
                     hintText: 'Trufa de chocolate...',
                     controller: controller.nomeController,
@@ -60,7 +73,7 @@ class BtsNovoProduto extends StatelessWidget {
                     colorHint: AppColors.darkMocha150,
                     focusBorderColor: AppColors.darkMocha420,
                     cursorColor: AppColors.darkMocha410,
-                    textColor: AppColors.darkMocha420,
+                    textColor: AppColors.darkMocha240,
                   ),
                   AppText(
                     text: 'Sabor',
@@ -69,6 +82,7 @@ class BtsNovoProduto extends StatelessWidget {
                     fontWeight: AppFontsWeight.semiBold,
                     textAlign: TextAlign.start,
                   ),
+
                   CustomTextField(
                     hintText: 'Chocolate...',
                     controller: controller.saborController,
@@ -78,38 +92,38 @@ class BtsNovoProduto extends StatelessWidget {
                     cursorColor: AppColors.darkMocha410,
                     textColor: AppColors.darkMocha240,
                   ),
-                  // 👇 Categoria agora vem do banco (Obx reage à lista carregada)
-                  Obx(
-                    () => controller.carregandoCategorias.value
-                        ? const Padding(
-                            padding: EdgeInsets.symmetric(vertical: 8),
-                            child: SizedBox(
-                              height: 20,
-                              width: 20,
-                              child: CircularProgressIndicator(strokeWidth: 2),
+
+                  Obx(() {
+                    if (controller.carregandoCategorias.value) {
+                      return const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 8),
+                        child: SizedBox(
+                          height: 20,
+                          width: 20,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        ),
+                      );
+                    }
+                    return DropdownWidget(
+                      titulo: 'Categoria',
+                      itens: controller.categorias
+                          .map(
+                            (categoria) => DropdownMenuEntry<String>(
+                              value: categoria.id.toString(),
+                              label: categoria.nome,
                             ),
                           )
-                        : DropdownWidget(
-                            titulo: "Categoria",
-                            itens: controller.categorias
-                                .map(
-                                  (c) => DropdownMenuEntry(
-                                    value: c.id
-                                        .toString(), // DropdownWidget só aceita String
-                                    label: c.nome,
-                                  ),
-                                )
-                                .toList(),
-                            onChanged: (valor) =>
-                                controller.categoriaSelecionada = int.tryParse(
-                                  valor ?? '',
-                                ),
-                            onSelecionado:
-                                (
-                                  Color _,
-                                ) {}, // parâmetro obrigatório não utilizado pelo widget
-                          ),
-                  ),
+                          .toList(),
+                      valorInicial: controller.categoriaSelecionada?.toString(),
+                      onChanged: (valor) {
+                        controller.categoriaSelecionada = int.tryParse(
+                          valor ?? '',
+                        );
+                        controller.update();
+                      },
+                      onSelecionado: (_) {},
+                    );
+                  }),
                   Wrap(
                     spacing: 12,
                     runSpacing: 8,
@@ -136,6 +150,7 @@ class BtsNovoProduto extends StatelessWidget {
                           ),
                         ],
                       ),
+
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -158,6 +173,7 @@ class BtsNovoProduto extends StatelessWidget {
                           ),
                         ],
                       ),
+
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -182,6 +198,7 @@ class BtsNovoProduto extends StatelessWidget {
                       ),
                     ],
                   ),
+
                   AppText(
                     text: 'Preço',
                     color: AppColors.darkMocha240,
@@ -189,6 +206,7 @@ class BtsNovoProduto extends StatelessWidget {
                     fontWeight: AppFontsWeight.semiBold,
                     textAlign: TextAlign.start,
                   ),
+
                   CustomTextField(
                     prefixBuilder: (hasFocus) => AppText(
                       text: 'R\$',
@@ -206,12 +224,12 @@ class BtsNovoProduto extends StatelessWidget {
                     cursorColor: AppColors.darkMocha410,
                     textColor: AppColors.darkMocha240,
                   ),
+
                   const SizedBox(height: 24),
 
-                  // 👇 Botão reage ao estado de carregando (usa 'acao', não 'onTap')
                   Obx(
                     () => CustomButton(
-                      texto: "Salvar",
+                      texto: 'Salvar',
                       altura: 47,
                       carregando: controller.carregando.value,
                       corFundo: AppColors.darkMocha420,
@@ -219,9 +237,8 @@ class BtsNovoProduto extends StatelessWidget {
                       corTexto: AppColors.lightMocha10,
                       acao: controller.carregando.value
                           ? null
-                          : () => controller.salvarComValidacao(
-                              idProdutoEdicao: idProdutoEdicao,
-                            ),
+                          : () => controller
+                                .salvarComValidacao(), // 👈 sem argumento
                     ),
                   ),
                 ],

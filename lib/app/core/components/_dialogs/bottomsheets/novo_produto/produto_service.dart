@@ -1,8 +1,28 @@
 import 'dart:typed_data';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:trufapp/app/core/models/produto_model.dart';
 
 class ProdutoService {
   final SupabaseClient _client = Supabase.instance.client;
+
+  Future<List<Produto>> listarProdutos({String? termoBusca}) async {
+    try {
+      var query = _client
+          .from('produto')
+          .select('*, categoria(nome)')
+          .eq('ativo', true);
+
+      if (termoBusca != null && termoBusca.trim().isNotEmpty) {
+        query = query.ilike('nome', '%${termoBusca.trim()}%');
+      }
+
+      final response = await query.order('nome', ascending: true);
+
+      return (response as List).map((item) => Produto.fromJson(item)).toList();
+    } catch (e) {
+      throw Exception('Erro ao buscar produtos: $e');
+    }
+  }
 
   Future<String?> uploadImagem(
     Uint8List bytes, {
@@ -32,8 +52,22 @@ class ProdutoService {
     }
   }
 
+  Future<Produto> buscarProdutoPorId(int id) async {
+    try {
+      final response = await _client
+          .from('produto')
+          .select('*, categoria(nome)')
+          .eq('id', id)
+          .single();
+
+      return Produto.fromJson(response);
+    } catch (e) {
+      throw Exception('Erro ao buscar produto: $e');
+    }
+  }
+
   Future<void> salvarProduto({
-    String? id,
+    int? id,
     required String nome,
     String? sabor,
     int? idCategoria,
